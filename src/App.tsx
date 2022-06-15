@@ -5,14 +5,14 @@ import Home from "./pages/Home";
 import Lapor from "./pages/Lapor";
 
 function App() {
-	return (
-		<div className="App">
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="lapor" element={<Lapor />} />
-			</Routes>
-		</div>
-	);
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="lapor" element={<Lapor />} />
+      </Routes>
+    </div>
+  );
 }
 
 export default App;
