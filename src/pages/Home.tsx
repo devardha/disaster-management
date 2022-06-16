@@ -1,6 +1,6 @@
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import LaporanTerkini from "../components/LaporanTerkini";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import PrakiraanCuaca from "../components/PrakiraanCuaca";
 import RiwayatGempa from "../components/RiwayatGempa";
 

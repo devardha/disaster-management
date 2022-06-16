@@ -1,0 +1,36 @@
+*{
+   scroll-behavior: smooth;
+}
+
+nav {
+   display: flex;
+   background-color: #ffff;
+   padding: 5px 0;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   border-radius: 5px;
+   justify-content: space-around;
+}
+
+nav ul {
+   display: flex;
+   list-style-type: none;
+   width: 25%;
+   justify-content: space-around;
+   margin-top: 25px;
+}
+
+
+nav a {
+   font-size: 17px;
+   font-weight: 400;
+   text-decoration: none;
+   color: rgb(0, 0, 0);
+   font-family: 'Poppins', sans-serif;
+}
+
+nav  img{
+   width: 28%;
+   padding-top: 10px;
+   padding-left: 20px;
+   
+}
