@@ -6,6 +6,7 @@ footer {
    justify-content: space-around;
    font-family: 'Poppins', sans-serif;
    font-size: 12px;
+   width: 100%;
 }
 
 footer .link{
@@ -20,9 +21,11 @@ footer .link a{
 }
 
 footer .logo img{
-   width: 25%;
+   width: 35%;
    padding-top: 10px;
-   margin-left: 130px;
+   display: flex;
+   margin-left: 5%;
+   align-items: center;
 }
 footer .bmkg .kontak h1{
    text-align: center;
@@ -34,10 +37,12 @@ footer .bmkg .kontak p{
 }
 
 footer .bmkg img{
-   width: 10%;
-   height: 70%;
+   display: flex;
+   width: 14%;
+   align-items: center;
 }
 
 footer .bmkg {
    display: flex;
 }
+
