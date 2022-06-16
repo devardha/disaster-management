@@ -4,9 +4,9 @@ import ".assets/styles/footer.css";
 const Footer = () => {
 	return(
 		<><div className="logo">
-			<img src="assets/image/Logo-1.png" alt=""/>
+			<img src="Logo-1.png" alt=""/>
 			</div><div className="bmkg">
-				<img src="assets/image/Logo-BMKG.png" alt=""/>
+				<img src="Logo-BMKG.png" alt=""/>
 					<div className="kontak">
 						<h1>BMKG</h1>
 						<table>
