@@ -49,9 +49,21 @@ const RiwayatGempa = () => {
   thead{
 	background-color:#eeeeee;
   }
-  
+  td{
+	font-size:16px;
+	color:#6b7280;
+	pading:12px 24px
+}
+tr{
+	font-size:16px;
+	color:#6b7280;
+}
+	tr{
+		font-size:16px;
+		color:#6b7280;	
   `}
 </style>
+
   </div>;
 };
 
