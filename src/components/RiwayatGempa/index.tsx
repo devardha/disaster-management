@@ -1,6 +1,10 @@
+import Map from "./Map";
+
 const RiwayatGempa = () => {
 	return (
 		<div className="container">
+			<h2>Riwayat Gempa Bumi</h2>
+			<Map />
 			<table>
 				<thead>
 					<tr>
@@ -51,6 +55,7 @@ const RiwayatGempa = () => {
 				{`
 					table{
 						border-collapse: collapse;
+						margin-top:32px;
 					}
 					thead{
 						background-color:#eeeeee;
