@@ -9,13 +9,13 @@ const Navbar = () => {
 				</div>
 				<ul>
 					<li>
-						<a href="#sejarah">Prakiraan Cuaca</a>
+						<a href="../PrakiraanCuaca/index.tsx">Prakiraan Cuaca</a>
 					</li>
 					<li>
-						<a href="#geografis">Berita Terkini</a>
+						<a href="../LaporanTerkini/LaporanTerkini.tsx">Berita Terkini</a>
 					</li>
 					<li>
-						<a href="#wisata">Lapor</a>
+						<a href="../Lapor/formLapor.jsx">Lapor</a>
 					</li>
 				</ul>
 			</div>
