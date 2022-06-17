@@ -2,6 +2,7 @@ import "./LaporanTerkini.css";
 
 const LaporanTerkini = () => {
 	return (
+		<div className="container">
 		<div className="all-berita">
 			<div className="berita">Berita Terkini</div>
 			<div className="news-warp-grid">
@@ -66,6 +67,7 @@ const LaporanTerkini = () => {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 	)
 };
