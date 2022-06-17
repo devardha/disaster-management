@@ -1,18 +1,15 @@
-import Footer from "../components/Footer/Footer";
 import LaporanTerkini from "../components/LaporanTerkini/LaporanTerkini";
-import Navbar from "../components/Navbar/Navbar";
+import Layout from "../components/Layout";
 import PrakiraanCuaca from "../components/PrakiraanCuaca";
 import RiwayatGempa from "../components/RiwayatGempa";
 
 const Home = () => {
 	return (
-		<div>
-			<Navbar />
+		<Layout>
 			<PrakiraanCuaca />
 			<RiwayatGempa />
 			<LaporanTerkini />
-			<Footer />
-		</div>
+		</Layout>
 	);
 };
 
