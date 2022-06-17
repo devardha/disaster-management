@@ -1,23 +1,29 @@
-import Carousel from "../Carousel";
+import Carousel from "./Carousel";
 
 const data: any = [
 	{
 		code: "0",
+		t: 24,
 	},
 	{
-		code: "0",
+		code: "1",
+		t: 25,
 	},
 	{
-		code: "0",
+		code: "61",
+		t: 23,
 	},
 	{
-		code: "0",
+		code: "3",
+		t: 24,
 	},
 	{
-		code: "0",
+		code: "97",
+		t: 27,
 	},
 	{
-		code: "0",
+		code: "4",
+		t: 28,
 	},
 ];
 
