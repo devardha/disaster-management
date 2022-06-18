@@ -5,7 +5,7 @@
 nav {
 	display: flex;
 	background-color: #ffff;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
 	justify-content: space-around;
 	height: 90px;
