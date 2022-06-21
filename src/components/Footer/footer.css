@@ -6,11 +6,17 @@ footer {
 	justify-content: space-around;
 	font-family: "Poppins", sans-serif;
 	font-size: 12px;
-	width: 100%;
+}
+
+footer .link {
+	margin-right: 100px;
+	text-decoration: none;
+	list-style-type: none;
+	color: #ffff;
+	width: 50%;
 }
 
 footer .link a {
-	margin-right: 100px;
 	text-decoration: none;
 	list-style-type: none;
 	color: #ffff;
@@ -39,4 +45,37 @@ footer .bmkg img {
 
 footer .bmkg {
 	display: flex;
+	margin-right: 100px;
+}
+
+.footer-container{
+	display:grid;
+	grid-template-columns: auto auto auto;
+}
+.kontak{
+	margin-left:20px;
+}
+.kontak h1{
+	margin:0;
+	font-size:30px;
+	margin-bottom:4px;
+}
+.kontak-row{
+	display:flex;
+	font-size:16px;
+}
+
+@media screen and (max-width : 768px) {
+	footer{
+		width: 150%;
+		display: flex;
+	}
+}
+
+@media screen and (max-width : 576px) {
+	footer{
+		width: 250vw;
+		flex-direction: column;
+	}
+
 }

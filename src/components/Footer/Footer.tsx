@@ -5,7 +5,7 @@ const Footer = () => {
 		<footer>
 			<div className="container footer-container">
 				<div className="logo">
-					<img src="/images/logo.png" alt="" />
+					<img src="/images/logo-with-text.png" alt="" />
 				</div>
 				<div className="bmkg">
 					<img src="/images/bmkg.png" alt="" />
@@ -37,24 +37,6 @@ const Footer = () => {
 					</a>
 				</div>
 			</div>
-			<style>{`
-				.footer-container{
-					display:grid;
-					grid-template-columns: auto auto auto;
-				}
-				.kontak{
-					margin-left:32px;
-				}
-				.kontak h1{
-					margin:0;
-					font-size:40px;
-					margin-bottom:4px;
-				}
-				.kontak-row{
-					display:flex;
-					font-size:16px;
-				}
-			`}</style>
 		</footer>
 	);
 };

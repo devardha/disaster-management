@@ -20,12 +20,6 @@ const Navbar = () => {
 					</li>
 				</ul>
 			</div>
-			<style>{`
-				.navbar-container {
-					flex-direction: row;
-					justify-content: space-between;
-				}
-			`}</style>
 		</nav>
 	);
 };

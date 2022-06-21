@@ -1,14 +1,10 @@
-* {
-	scroll-behavior: smooth;
-}
-
 nav {
 	display: flex;
 	background-color: #ffff;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
 	justify-content: space-around;
-	height: 90px;
+	height: 100px;
 	align-items: center;
 }
 
@@ -45,4 +41,21 @@ nav img {
 	width: 28%;
 	padding-top: 10px;
 	align-items: center;
+}
+
+.navbar-container {
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+@media screen and (max-width : 768px) {
+	nav {
+		width: 150%;
+	}
+}
+
+@media screen and (max-width : 576px) {
+	nav{
+		width: 250%;
+	}
 }
