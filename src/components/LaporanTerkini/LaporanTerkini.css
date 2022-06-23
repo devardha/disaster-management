@@ -87,3 +87,15 @@
 	line-height: 24px;
 	color: #777e8b;
 }
+
+@media screen and (max-width : 768px) {
+	.container {
+		width: 150%;
+	}
+}
+
+@media screen and (max-width : 576px) {
+	.container {
+		width: 250%;
+	}
+}
