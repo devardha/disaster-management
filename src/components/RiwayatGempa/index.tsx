@@ -64,6 +64,7 @@ const RiwayatGempa = () => {
 						font-size:16px;
 						padding:12px 24px;
 						color:#6b7280;
+						width: 326px
 					}
 					th{
 						padding:12px 24px;
@@ -74,6 +75,9 @@ const RiwayatGempa = () => {
 					}
 					.location{
 						color:#000000;
+					}
+					tr{
+						border-bottom: 2px solid #eeeeee;
 					}
 				`}
 			</style>
