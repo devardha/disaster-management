@@ -89,13 +89,20 @@
 }
 
 @media screen and (max-width : 768px) {
-	.container {
-		width: 150%;
+	.all-berita {
+		padding-left: 20px;
+	}
+	.news-warp-grid { 
+		padding: 15px;
+		grid-template-columns: repeat(2, 1fr); 
+		gap: 10px;
 	}
 }
 
 @media screen and (max-width : 576px) {
-	.container {
-		width: 250%;
+	.news-warp-grid { 
+		padding: 15px;
+		grid-template-columns: repeat(1, 1fr); 
+		gap: 10px;
 	}
 }
