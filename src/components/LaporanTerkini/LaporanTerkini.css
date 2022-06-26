@@ -88,21 +88,16 @@
 	color: #777e8b;
 }
 
-@media screen and (max-width : 768px) {
-	.all-berita {
-		padding-left: 20px;
-	}
-	.news-warp-grid { 
-		padding: 15px;
-		grid-template-columns: repeat(2, 1fr); 
+@media screen and (max-width: 768px) {
+	.news-warp-grid {
+		grid-template-columns: repeat(2, 1fr);
 		gap: 10px;
 	}
 }
 
-@media screen and (max-width : 576px) {
-	.news-warp-grid { 
-		padding: 15px;
-		grid-template-columns: repeat(1, 1fr); 
+@media screen and (max-width: 576px) {
+	.news-warp-grid {
+		grid-template-columns: repeat(1, 1fr);
 		gap: 10px;
 	}
 }

@@ -23,7 +23,7 @@ footer .link a {
 }
 
 footer .logo img {
-	padding-top: 10px;
+	margin: 15px 0px;
 	display: flex;
 	align-items: center;
 	width: 300px;
@@ -48,34 +48,82 @@ footer .bmkg {
 	margin-right: 100px;
 }
 
-.footer-container{
-	display:grid;
+.footer-container {
+	display: grid;
 	grid-template-columns: auto auto auto;
 }
-.kontak{
-	margin-left:20px;
+.kontak {
+	margin-left: 20px;
 }
-.kontak h1{
-	margin:0;
-	font-size:30px;
-	margin-bottom:4px;
+.kontak h1 {
+	margin: 0;
+	font-size: 30px;
+	margin-bottom: 4px;
 }
-.kontak-row{
-	display:flex;
-	font-size:16px;
+.kontak-row {
+	display: flex;
+	font-size: 16px;
 }
 
-@media screen and (max-width : 768px) {
-	footer{
-		width: 150%;
+@media screen and (max-width: 800px) {
+	.footer-container {
+		width: 100%;
+		display: block;
+	}
+
+	footer .logo img {
+		width: 50%;
+		margin-top: -10px;
+		padding-bottom: 50px;
+	}
+
+	.container .footer-container {
 		display: flex;
+		flex-direction: column;
+		height: 100px;
+		justify-content: space-between;
+	}
+
+	footer .bmkg {
+		margin-bottom: 50px;
+		margin-right: 0;
+	}
+
+	footer .link {
+		display: block;
+		width: 40%;
+		margin-top: 50px;
+		margin-bottom: 40px;
 	}
 }
 
-@media screen and (max-width : 576px) {
-	footer{
-		width: 250vw;
-		flex-direction: column;
+@media screen and (max-width: 576px) {
+	.footer-container {
+		width: 100%;
+		display: block;
 	}
 
+	footer .logo img {
+		width: 70%;
+		margin-top: -10px;
+		padding-bottom: 50px;
+	}
+
+	.container .footer-container {
+		display: flex;
+		flex-direction: column;
+		height: 100px;
+		justify-content: space-between;
+	}
+
+	footer .bmkg {
+		margin-bottom: 50px;
+	}
+
+	footer .link {
+		display: block;
+		width: 40%;
+		margin-top: 50px;
+		margin-bottom: 40px;
+	}
 }

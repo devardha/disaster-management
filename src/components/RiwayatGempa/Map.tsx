@@ -76,6 +76,16 @@ const Map = () => {
 					font-size:42px;
 					font-weight:600;
 				}
+
+				@media(max-width:576px){
+					.map, .map-detail{
+						width:100%;
+					}
+
+					.map-detail{
+						padding-left:0;
+					}
+				}
 			`}</style>
 		</div>
 	);
