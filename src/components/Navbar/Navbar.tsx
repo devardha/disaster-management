@@ -12,7 +12,7 @@ const Navbar = () => {
 					<div className="lo">
 						<img src="/images/logo.png" alt="logo" />
 					</div>
-					<ul>
+					<ul className={`${open ? "open" : ""}`}>
 						<li>
 							<Link to="/">Prakiraan Cuaca</Link>
 						</li>
@@ -24,18 +24,34 @@ const Navbar = () => {
 						</li>
 					</ul>
 				</div>
-				{/* {open && (
-				<div className="menu">
+				<div className="menu" onClick={() => setOpen(!open)}>
 					<input type="checkbox" id="check" />
 					<span></span>
 					<span></span>
 					<span></span>
 				</div>
-			)} */}
 			</nav>
 			<style>{`
 				nav{
 					position:relative;
+				}
+
+				.navbar-container{
+					padding:0;
+				}
+
+				@media(max-width:576px){
+					nav ul{
+						display:none;
+					}
+
+					nav ul.open{
+						display:block;
+					}
+
+					.navbar-container{
+						padding:0 20px;
+					}
 				}
 			`}</style>
 		</>

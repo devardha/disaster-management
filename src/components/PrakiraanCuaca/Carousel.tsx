@@ -110,7 +110,6 @@ const Carousel = ({ data }: any) => {
 					margin-right:20px;
 					display:flex;
 					flex-direction:column;
-					items:center;
 				}
 				.embla__slide img{
 					width:100px;
@@ -119,7 +118,7 @@ const Carousel = ({ data }: any) => {
 
 				@media(max-width:576px){
 					.embla__slide {
-						flex: 0 0 31%;
+						flex: 0 0 47%;
 					}
 				}
 			`}</style>

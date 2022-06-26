@@ -36,7 +36,7 @@ const PrakiraanCuaca = () => {
 				<Carousel data={data} />
 			</div>
 			<style>{`
-				.container{
+				.prakiraan-cuaca{
 					padding-top: 52px;
 					padding-bottom: 52px;
 				}

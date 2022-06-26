@@ -44,8 +44,8 @@ nav a:hover {
 nav img {
 	display: flex;
 	width: 28%;
-	margin: 10px 25px;
 	align-items: center;
+	transform: translateY(16px);
 }
 
 .navbar-container {
@@ -127,7 +127,6 @@ nav img {
 	nav img {
 		width: 50%;
 		margin-top: 15px;
-		margin-left: 10px;
 	}
 }
 
@@ -167,10 +166,14 @@ nav img {
 	nav img {
 		width: 50%;
 		margin-top: 15px;
-		margin-left: 10px;
+		transform: translateY(0px) scale(1.2) translateX(11px);
 	}
 
 	.menu {
 		display: flex;
+	}
+
+	.navbar-container {
+		padding: 20px;
 	}
 }
