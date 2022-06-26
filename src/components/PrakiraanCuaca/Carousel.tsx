@@ -67,7 +67,7 @@ const Carousel = ({ data }: any) => {
 		<div className="embla" ref={emblaRef}>
 			<div className="embla__container">
 				{data.map((item: any, index: number) => (
-					<div className="embla__slide">
+					<div className="embla__slide" key={index}>
 						<div className="time">13:00 WIB</div>
 						<img src={getIcon(item.code)} alt="icon" key={index} />
 						<div className="weather">{getLabel(item.code)}</div>

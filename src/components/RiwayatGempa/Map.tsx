@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Circle, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const CustomMarker = () => {
 	return L.divIcon({
@@ -11,41 +12,67 @@ const CustomMarker = () => {
 };
 
 const Map = () => {
+	const [coordinates, setCoordinates] = useState<any>();
+	const [earthquake, setEarthquake] = useState<any>();
+
+	useEffect(() => {
+		axios
+			.get(
+				`https://api.allorigins.win/get?url=${encodeURIComponent(
+					"https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json"
+				)}`
+			)
+			.then((res) => {
+				const json = JSON.parse(res.data.contents);
+				const gempa = json.Infogempa.gempa;
+				const coordinates = gempa.Coordinates.split(",").map(
+					(item: string) => parseFloat(item)
+				);
+
+				setEarthquake(gempa);
+				setCoordinates(coordinates);
+			});
+	}, []);
+
 	return (
 		<div className="map-section">
 			<div className="map-container">
 				<div className="map">
-					<MapContainer
-						center={[-1.8332396, 138.7419573]}
-						zoom={14}
-						scrollWheelZoom={false}
-						style={{ height: "100%", width: "100%" }}
-					>
-						<TileLayer
-							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-						/>
-						<Marker
-							icon={CustomMarker()}
-							position={[-1.8332396, 138.7419573]}
-							draggable={false}
+					{coordinates && (
+						<MapContainer
+							center={coordinates}
+							zoom={9}
+							scrollWheelZoom={false}
+							style={{ height: "100%", width: "100%" }}
 						>
-							<Popup>aaa</Popup>
-						</Marker>
-					</MapContainer>
+							<TileLayer
+								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+							/>
+							<Marker
+								icon={CustomMarker()}
+								position={coordinates}
+								draggable={false}
+							>
+								<Popup>aaa</Popup>
+							</Marker>
+						</MapContainer>
+					)}
 				</div>
 				<div className="map-detail">
-					<div className="label">Tidak Berpotensi Tsunami</div>
-					<div className="loc">17 km Tenggara SARMI-PAPUA</div>
-					<p className="coordinates">06 Juni 2022, 15:29:11 WIB</p>
+					<div className="label">{earthquake?.Potensi}</div>
+					<div className="loc">{earthquake?.Wilayah}</div>
+					<p className="coordinates">
+						{earthquake?.Tanggal}, {earthquake?.Jam}
+					</p>
 					<div className="additional-info">
 						<div className="info-card">
 							<div>Magnitudo</div>
-							<div className="value">5.0</div>
+							<div className="value">{earthquake?.Magnitude}</div>
 						</div>
 						<div className="info-card">
 							<div>Kedalaman</div>
-							<div className="value">10</div>
+							<div className="value">{earthquake?.Kedalaman}</div>
 						</div>
 					</div>
 				</div>
