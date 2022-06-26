@@ -20,3 +20,10 @@ code {
 	display: flex;
 	flex-direction: column;
 }
+
+@media (max-width: 576px) {
+	.container {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
