@@ -1,8 +1,6 @@
-body{
+body {
 	overflow-x: hidden;
 }
-
-
 
 nav {
 	display: flex;
@@ -46,7 +44,7 @@ nav a:hover {
 nav img {
 	display: flex;
 	width: 28%;
-	margin:10px 25px;
+	margin: 10px 25px;
 	align-items: center;
 }
 
@@ -55,7 +53,7 @@ nav img {
 	justify-content: space-between;
 }
 
-.menu{
+.menu {
 	display: none;
 	flex-direction: column;
 	height: 20px;
@@ -65,7 +63,7 @@ nav img {
 	border-radius: 2px;
 }
 
-.menu input{
+.menu input {
 	position: absolute;
 	width: 40px;
 	height: 28px;
@@ -77,7 +75,7 @@ nav img {
 	z-index: 4;
 }
 
-.menu span{
+.menu span {
 	display: block;
 	width: 28px;
 	height: 3px;
@@ -86,96 +84,93 @@ nav img {
 	transition: all 0.5s;
 }
 
-.menu span:nth-child(2){
+.menu span:nth-child(2) {
 	transform-origin: 0 0;
 }
 
-.menu span:nth-child(4){
+.menu span:nth-child(4) {
 	transform-origin: 0 100%;
 }
 
-.menu input:checked ~ span:nth-child(2){
+.menu input:checked ~ span:nth-child(2) {
 	transform: rotate(45deg) translate(2px, -4px);
 	background-color: #2fb58c;
 }
 
-.menu input:checked ~ span:nth-child(4){
+.menu input:checked ~ span:nth-child(4) {
 	transform: rotate(-45deg) translate(3px, 3px);
 	background-color: #2fb58c;
 }
 
-.menu input:checked ~ span:nth-child(3){
-	transform: scale(0)
+.menu input:checked ~ span:nth-child(3) {
+	transform: scale(0);
 }
 
-@media screen and (max-width : 800px) {
+@media screen and (max-width: 800px) {
 	nav {
 		width: 100%;
 	}
-	nav a{
-		font-size:14px ;
+	nav a {
+		font-size: 14px;
 		margin-left: -20px;
 	}
 
-	nav ul{
+	nav ul {
 		width: 100%;
-		
 	}
 
-	nav a{
-		font-size:14px ;
+	nav a {
+		font-size: 14px;
 		margin-left: -20px;
 	}
 
-	nav img{
-		width:50%;
+	nav img {
+		width: 50%;
 		margin-top: 15px;
 		margin-left: 10px;
 	}
 }
 
-@media screen and (max-width : 576px) {
-	nav{
+@media screen and (max-width: 576px) {
+	nav {
 		width: 100%;
 	}
 
-	nav ul{
+	nav ul {
 		position: absolute;
 		right: 0;
 		flex-direction: column;
-		height: 25%;
 		top: 0;
 		width: 40%;
-		align-items:flex-start;
+		align-items: flex-start;
 		justify-content: space-around;
 		z-index: 1;
-		background-color:white;
+		background-color: white;
 		border-radius: 10px;
 		top: 55px;
 		margin-right: 10px;
 		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 1);
-		transform: translate(120%);
 		transition: all 1s;
 		opacity: 1;
 	}
-	
-	nav ul .slide{
+
+	nav ul .slide {
 		opacity: 1;
 		transform: translate(0);
 	}
 
-	nav a{
-		font-size:14px ;
+	nav a {
+		font-size: 14px;
 		margin-left: -20px;
 	}
 
-	nav img{
-		width:50%;
+	nav img {
+		width: 50%;
 		margin-top: 15px;
 		margin-left: 10px;
 	}
 
-	.menu{
+	.menu {
 		display: flex;
 	}
 }

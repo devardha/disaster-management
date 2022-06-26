@@ -30,7 +30,7 @@ const data: any = [
 const PrakiraanCuaca = () => {
 	return (
 		<>
-			<div className="container">
+			<div className="container prakiraan-cuaca">
 				<h2>Prakiraan Cuaca</h2>
 				<h3>Jakarta, Indonesia</h3>
 				<Carousel data={data} />
@@ -49,6 +49,12 @@ const PrakiraanCuaca = () => {
 					margin:0;
 					margin-bottom:20px;
 					text-align:left;
+				}
+
+				@media(max-width:576px){
+					.map-container{
+						flex-direction:column;
+					}
 				}
 			`}</style>
 		</>

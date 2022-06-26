@@ -116,6 +116,12 @@ const Carousel = ({ data }: any) => {
 					width:100px;
 					margin:auto;
 				}
+
+				@media(max-width:576px){
+					.embla__slide {
+						flex: 0 0 31%;
+					}
+				}
 			`}</style>
 		</div>
 	);
