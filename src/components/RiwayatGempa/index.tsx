@@ -1,6 +1,24 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import Map from "./Map";
 
 const RiwayatGempa = () => {
+	const [earthquakes, setEarthquakes] = useState<any>([]);
+
+	useEffect(() => {
+		axios
+			.get(
+				`https://api.allorigins.win/get?url=${encodeURIComponent(
+					"https://data.bmkg.go.id/DataMKG/TEWS/gempadirasakan.json"
+				)}`
+			)
+			.then((res) => {
+				const json = JSON.parse(res.data.contents);
+				const gempa = json.Infogempa.gempa;
+
+				setEarthquakes(gempa);
+			});
+	}, []);
 	return (
 		<div className="container">
 			<h2>Riwayat Gempa Bumi</h2>
@@ -18,46 +36,19 @@ const RiwayatGempa = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td className="location">
-								17 km Tenggara SARMI-PAPUA
-							</td>
-							<td>5,0</td>
-							<td>10 km</td>
-							<td>10 jam yang lalu</td>
-							<td>-2.53,139.35</td>
-							<td>Tidak berpotensi tsunami</td>
-						</tr>
-						<tr>
-							<td className="location">
-								17 km Tenggara SARMI-PAPUA
-							</td>
-							<td>5,0</td>
-							<td>10 km</td>
-							<td>10 jam yang lalu</td>
-							<td>-2.53,139.35</td>
-							<td>Tidak berpotensi tsunami</td>
-						</tr>
-						<tr>
-							<td className="location">
-								17 km Tenggara SARMI-PAPUA
-							</td>
-							<td>5,0</td>
-							<td>10 km</td>
-							<td>10 jam yang lalu</td>
-							<td>-2.53,139.35</td>
-							<td>Tidak berpotensi tsunami</td>
-						</tr>
-						<tr>
-							<td className="location">
-								17 km Tenggara SARMI-PAPUA
-							</td>
-							<td>5,0</td>
-							<td>10 km</td>
-							<td>10 jam yang lalu</td>
-							<td>-2.53,139.35</td>
-							<td>Tidak berpotensi tsunami</td>
-						</tr>
+						{earthquakes.length > 0 &&
+							earthquakes.map((item: any, index: number) => (
+								<tr key={index}>
+									<td className="location">
+										{item?.Wilayah}
+									</td>
+									<td>{item?.Magnitude}</td>
+									<td>{item?.Kedalaman}</td>
+									<td>10 jam yang lalu</td>
+									<td>{item?.Coordinates}</td>
+									<td>{item.Potensi ? item.Potensi : "-"}</td>
+								</tr>
+							))}
 					</tbody>
 				</table>
 			</div>
