@@ -1,8 +1,39 @@
+import { MapContainer, TileLayer, Circle, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { useEffect, useState } from "react";
+
+const CustomMarker = () => {
+	return L.divIcon({
+		html: `<span class="marker" ><span class="inner-marker" ></span></span>`,
+		iconSize: [40, 40],
+	});
+};
+
 const Map = () => {
 	return (
 		<div className="map-section">
 			<div className="map-container">
-				<div className="map"></div>
+				<div className="map">
+					<MapContainer
+						center={[-1.8332396, 138.7419573]}
+						zoom={14}
+						scrollWheelZoom={false}
+						style={{ height: "100%", width: "100%" }}
+					>
+						<TileLayer
+							attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+							url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+						/>
+						<Marker
+							icon={CustomMarker()}
+							position={[-1.8332396, 138.7419573]}
+							draggable={false}
+						>
+							<Popup>aaa</Popup>
+						</Marker>
+					</MapContainer>
+				</div>
 				<div className="map-detail">
 					<div className="label">Tidak Berpotensi Tsunami</div>
 					<div className="loc">17 km Tenggara SARMI-PAPUA</div>
@@ -20,6 +51,32 @@ const Map = () => {
 				</div>
 			</div>
 			<style>{`
+				.leaflet-div-icon {
+					border-style: none;
+					background-color: #0000;
+					color: rgba(255, 255, 255);
+				}
+
+				.marker{
+					display:flex;
+					width:40px;
+					height:40px;
+					background:#ff000045;
+					border-radius:50%;
+					position:relative;
+					justify-content:center;
+					align-items:center;
+				}
+
+				.inner-marker{
+					display:flex;
+					width:12px;
+					height:12px;
+					background:red;
+					border-radius:50%;
+					z-index:2;
+				}
+
 				.map{
 					width:50%;
 					height:340px;
