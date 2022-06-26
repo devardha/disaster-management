@@ -1,7 +1,13 @@
+body{
+	overflow-x: hidden;
+}
+
+
+
 nav {
 	display: flex;
 	background-color: #ffff;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 	border-radius: 5px;
 	justify-content: space-around;
 	height: 100px;
@@ -24,6 +30,7 @@ nav a {
 	background-color: #ffff;
 	border-radius: 30px;
 	padding: 10px;
+	display: flex;
 }
 
 nav li {
@@ -39,7 +46,7 @@ nav a:hover {
 nav img {
 	display: flex;
 	width: 28%;
-	padding-top: 10px;
+	margin:10px 25px;
 	align-items: center;
 }
 
@@ -48,14 +55,127 @@ nav img {
 	justify-content: space-between;
 }
 
-@media screen and (max-width : 768px) {
+.menu{
+	display: none;
+	flex-direction: column;
+	height: 20px;
+	justify-content: space-between;
+	position: relative;
+	margin-right: 20px;
+	border-radius: 2px;
+}
+
+.menu input{
+	position: absolute;
+	width: 40px;
+	height: 28px;
+	left: -10px;
+	top: -7px;
+	opacity: 0;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 4;
+}
+
+.menu span{
+	display: block;
+	width: 28px;
+	height: 3px;
+	background-color: black;
+	border-radius: 3px;
+	transition: all 0.5s;
+}
+
+.menu span:nth-child(2){
+	transform-origin: 0 0;
+}
+
+.menu span:nth-child(4){
+	transform-origin: 0 100%;
+}
+
+.menu input:checked ~ span:nth-child(2){
+	transform: rotate(45deg) translate(2px, -4px);
+	background-color: #2fb58c;
+}
+
+.menu input:checked ~ span:nth-child(4){
+	transform: rotate(-45deg) translate(3px, 3px);
+	background-color: #2fb58c;
+}
+
+.menu input:checked ~ span:nth-child(3){
+	transform: scale(0)
+}
+
+@media screen and (max-width : 800px) {
 	nav {
-		width: 150%;
+		width: 100%;
+	}
+	nav a{
+		font-size:14px ;
+		margin-left: -20px;
+	}
+
+	nav ul{
+		width: 100%;
+		
+	}
+
+	nav a{
+		font-size:14px ;
+		margin-left: -20px;
+	}
+
+	nav img{
+		width:50%;
+		margin-top: 15px;
+		margin-left: 10px;
 	}
 }
 
 @media screen and (max-width : 576px) {
 	nav{
-		width: 250%;
+		width: 100%;
+	}
+
+	nav ul{
+		position: absolute;
+		right: 0;
+		flex-direction: column;
+		height: 25%;
+		top: 0;
+		width: 40%;
+		align-items:flex-start;
+		justify-content: space-around;
+		z-index: 1;
+		background-color:white;
+		border-radius: 10px;
+		top: 55px;
+		margin-right: 10px;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 1);
+		transform: translate(120%);
+		transition: all 1s;
+		opacity: 1;
+	}
+	
+	nav ul .slide{
+		opacity: 1;
+		transform: translate(0);
+	}
+
+	nav a{
+		font-size:14px ;
+		margin-left: -20px;
+	}
+
+	nav img{
+		width:50%;
+		margin-top: 15px;
+		margin-left: 10px;
+	}
+
+	.menu{
+		display: flex;
 	}
 }

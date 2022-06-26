@@ -79,6 +79,11 @@ const RiwayatGempa = () => {
 					tr{
 						border-bottom: 2px solid #eeeeee;
 					}
+					@media screen and (max-width : 576px){
+						.container{
+							overflow-y:auto;
+						}
+					}
 				`}
 			</style>
 		</div>
