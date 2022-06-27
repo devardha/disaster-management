@@ -17,7 +17,7 @@ const Navbar = () => {
 							<Link to="/">Prakiraan Cuaca</Link>
 						</li>
 						<li>
-							<Link to="/BeritaTerkini">Berita Terkini</Link>
+							<Link to="/berita-terkini">Berita Terkini</Link>
 						</li>
 						<li>
 							<Link to="/lapor">Lapor</Link>

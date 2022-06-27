@@ -80,7 +80,7 @@ const LaporanTerkini = () => {
 				text-align: left;
 			}
 
-			news-event-cuaca{
+			.news-event-cuaca{
 				display:flex;
 			}
 			
