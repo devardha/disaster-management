@@ -34,7 +34,6 @@
 	border-radius: 38px;
 	background: #e0e7ff;
 	box-sizing: border-box;
-	width: 140px;
 	height: 30px;
 	padding: 1px;
 }
@@ -63,16 +62,16 @@
 	line-height: 27px;
 	color: #000000;
 	margin-bottom: 10px;
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .news-title :hover {
 	color: #5c58b8;
 }
 
-.image-event > img{
-    object-fit: cover;
-    width: 100%
+.image-event > img {
+	object-fit: cover;
+	width: 100%;
 }
 
 .news-date {
@@ -94,21 +93,18 @@
 	color: #777e8b;
 }
 
-@media screen and (max-width : 768px) {
-	.all-berita {
-		padding-left: 20px;
-	}
-	.news-warp-grid { 
+@media screen and (max-width: 768px) {
+	.news-warp-grid {
 		padding: 15px;
-		grid-template-columns: repeat(2, 1fr); 
+		grid-template-columns: repeat(2, 1fr);
 		gap: 10px;
 	}
 }
 
-@media screen and (max-width : 576px) {
-	.news-warp-grid { 
-		padding: 15px;
-		grid-template-columns: repeat(1, 1fr); 
+@media screen and (max-width: 576px) {
+	.news-warp-grid {
+		padding: 0px;
+		grid-template-columns: repeat(1, 1fr);
 		gap: 10px;
 	}
 }

@@ -1,7 +1,5 @@
-import Footer from "../components/Footer/Footer";
-import FormLapor from "../components/Lapor/formLapor";
+import FormLapor from "../components/Lapor/FormLapor";
 import Layout from "../components/Layout";
-import Navbar from "../components/Navbar/Navbar";
 
 const Lapor = () => {
 	return (
