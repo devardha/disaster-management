@@ -39,14 +39,14 @@ nav li {
 	align-items: center;
 }
 
-nav a:hover {
+nav .nav-link a:hover {
 	background-color: #2fb58c;
 	color: #ffff;
 }
 
 nav img {
 	display: flex;
-	width: 28%;
+	width: 220px;
 	align-items: center;
 	transform: translateY(16px);
 }

@@ -10,16 +10,18 @@ const Navbar = () => {
 			<nav>
 				<div className="container navbar-container">
 					<div className="lo">
-						<img src="/images/logo.png" alt="logo" />
+						<Link to="/">
+							<img src="/images/logo.png" alt="logo" />
+						</Link>
 					</div>
 					<ul className={`${open ? "open" : ""}`}>
-						<li>
+						<li className="nav-link">
 							<Link to="/">Prakiraan Cuaca</Link>
 						</li>
-						<li>
+						<li className="nav-link">
 							<Link to="/berita-terkini">Berita Terkini</Link>
 						</li>
-						<li>
+						<li className="nav-link">
 							<Link to="/lapor">Lapor</Link>
 						</li>
 					</ul>
