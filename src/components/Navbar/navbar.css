@@ -48,7 +48,7 @@ nav img {
 	display: flex;
 	width: 220px;
 	align-items: center;
-	transform: translateY(16px);
+	transform: translateY(9px);
 }
 
 .navbar-container {
