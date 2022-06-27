@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900");
+
 body {
 	overflow-x: hidden;
+	font-family: "Poppins";
 }
 
 nav {
@@ -160,7 +163,8 @@ nav img {
 
 	nav a {
 		font-size: 14px;
-		margin-left: -20px;
+		margin-left: -25px;
+		margin-top: 5px;
 	}
 
 	nav img {
