@@ -1,18 +1,18 @@
 import Footer from "../Footer/Footer";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../Navbar";
 
-type Layout = {
-  children: React.ReactNode;
+type Props = {
+	children: React.ReactNode;
 };
 
-const Layout = ({ children }: Layout) => {
-  return (
-    <>
-      <Navbar />
-      {children}
-      <Footer />
-    </>
-  );
+const Layout = ({ children }: Props) => {
+	return (
+		<>
+			<Navbar />
+			{children}
+			<Footer />
+		</>
+	);
 };
 
 export default Layout;
