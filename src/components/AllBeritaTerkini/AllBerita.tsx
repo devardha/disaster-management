@@ -14,7 +14,10 @@ const AllBerita = () => {
 
 				const results: any = [];
 				querySnapshot.forEach((doc) => {
-					results.push(doc.data());
+					results.push({
+						...doc.data(), 
+						id: doc.id
+					});
 				});
 
 				setData(results);
@@ -36,7 +39,7 @@ const AllBerita = () => {
 									<h4>{item.description}</h4>
 								</div>
 								<div className="news-title">
-									<Link to="/News">
+									<Link to={`/News/${item.id}`}>
 										Gempa bumi mengguncang pesisir selatan Sumatra Barat
 									</Link>
 								</div>
