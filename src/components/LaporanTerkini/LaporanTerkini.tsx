@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebaseClient";
-import { Link } from "react-router-dom";
 
 const LaporanTerkini = () => {
 	const [data, setData] = useState<any>([]);
@@ -36,15 +35,19 @@ const LaporanTerkini = () => {
 									<h4>{item.description}</h4>
 								</div>
 								<div className="news-title">
-									<Link to="/News">
-										Gempa bumi mengguncang pesisir selatan Sumatra Barat
-									</Link>
+									Hujan Deras Sebabkan Bencana di Sejumlah
+									Kecamatan Utara Sukabumi
 								</div>
 								<div className="news-date">
 									Senin, 6 Juni 2022
 								</div>
 								<div className="news-article">
-									{item.details}
+									Lorem ipsum dolor sit amet consectetur
+									adipisicing elit. Sint, ullam nam laudantium
+									voluptates adipisci placeat hic ab, a
+									necessitatibus repellat reiciendis ea ipsa
+									minus eos omnis. Officia odit aspernatur
+									enim.
 								</div>
 							</div>
 						</div>
@@ -96,7 +99,23 @@ const LaporanTerkini = () => {
 				padding: 1px 12px;
 			}
 			
-			.news-title a {
+			.news-event-gempa h4 {
+				text-align: center;
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: 600;
+				font-size: 14px;
+				line-height: 27px;
+				color: #a93261;
+				border-radius: 38px;
+				background: #fce7f3;
+				box-sizing: border-box;
+				width: 140px;
+				height: 30px;
+				padding: 1px;
+			}
+			
+			.news-title {
 				font-family: "Poppins";
 				font-style: normal;
 				font-weight: 600;
@@ -104,14 +123,9 @@ const LaporanTerkini = () => {
 				line-height: 27px;
 				color: #000000;
 				margin-bottom: 10px;
-				text-decoration: none;
-				display: -webkit-box;
-				-webkit-line-clamp: 3;
-				-webkit-box-orient: vertical;
-				overflow: hidden;
 			}
 			
-			.news-title a:hover {
+			.news-title:hover {
 				color: #5c58b8;
 			}
 			
@@ -132,10 +146,6 @@ const LaporanTerkini = () => {
 				font-size: 16px;
 				line-height: 24px;
 				color: #777e8b;
-				display: -webkit-box;
-				-webkit-line-clamp: 4;
-				-webkit-box-orient: vertical;
-				overflow: hidden;
 			}
 			
 			@media screen and (max-width: 768px) {
