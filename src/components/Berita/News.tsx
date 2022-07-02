@@ -1,18 +1,19 @@
 import "./News.css";
 
 const News = () => {
+
     return (
         <div className="container">
             <div className="warp-berita">
-                <div className="news-title1">Hujan Deras Sebabkan Bencana di Sejumlah Kecamatan Utara Sukabumi</div>
+                <div className="news-title1">Gempa bumi mengguncang pesisir selatan Sumatra Barat</div>
                 <div className="news-image">
-                    <img src="/images/Cuaca Ekstrem.png" alt="" />
+                    <img src="/images/Gempa.png" alt="" />
                 </div>
                 <div className="warp-flex">
                     <div className="news-writer">Penulis</div>
                     <div className="news-dates">Senin, 6 Jumi 2022</div>
                     <div className="news-event">
-                        <h4>Cuaca Ekstrem</h4>
+                        <h4>Gempa Bumi</h4>
                     </div>
                 </div>
                 <div className="news-content">
