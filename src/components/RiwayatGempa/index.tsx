@@ -5,7 +5,7 @@ import { loadGempa } from "../../redux/actions/gempa";
 import { useGempa } from "../../redux/reducers/gempa";
 import Map from "./Map";
 
-interface gempa {
+interface Gempa {
 	Wilayah: string;
 	Kedalaman: string;
 	Magnitude: string;
@@ -39,7 +39,7 @@ const RiwayatGempa = () => {
 					</thead>
 					<tbody>
 						{gempa.length > 0 &&
-							gempa.map((item: gempa, index: number) => (
+							gempa.map((item: Gempa, index: number) => (
 								<tr key={index}>
 									<td className="location">
 										{item?.Wilayah}

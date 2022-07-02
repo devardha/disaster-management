@@ -1,10 +1,19 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { db } from "../../firebase/firebaseClient";
 import { doc, setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
 
+interface FormLaporData {
+	name: string;
+	phone?: string;
+	description: string;
+	address: string;
+	details: string;
+	image?: string;
+}
+
 const FormLapor = () => {
-	const [formData, setFormData] = useState({
+	const [formData, setFormData] = useState<FormLaporData>({
 		name: "",
 		phone: "",
 		description: "",
@@ -13,7 +22,7 @@ const FormLapor = () => {
 		image: "",
 	});
 
-	const handleSubmit = async (e) => {
+	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
 		setDoc(doc(db, "laporan", uuidv4()), formData)
@@ -114,8 +123,8 @@ const FormLapor = () => {
 					<textarea
 						name="kronologiKejadianBencana"
 						id="kronologiKejadianBencana"
-						cols="30"
-						rows="5"
+						cols={30}
+						rows={5}
 						placeholder="Ceritakan kronologi kejadian bencana"
 						className="form-input-ta"
 						value={formData.details}
@@ -271,9 +280,6 @@ const FormLapor = () => {
 			
 				.form {
 					padding: 0 20px;
-				}
-				.form h1{
-					font size:20px;
 				}
 			
 				/* h3 {
