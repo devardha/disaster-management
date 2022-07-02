@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Lapor from "./pages/Lapor";
 import Beritaterkini from "./pages/BeritaTerkini";
-import News from "./components/Berita/News";
 import Berita from "./pages/Berita";
 
 function App() {
