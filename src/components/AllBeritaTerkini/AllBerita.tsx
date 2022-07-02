@@ -1,221 +1,55 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { collection, query, getDocs} from "firebase/firestore";
+import { db } from "../../firebase/firebaseClient";
 
 const AllBerita = () => {
+	const [data, setData] = useState<any>([]);
+
+	useEffect(() => {
+		(async () => {
+			if (data.length === 0) {
+				const q = query(collection(db, "laporan"));
+				const querySnapshot = await getDocs(q);
+
+				const results: any = [];
+				querySnapshot.forEach((doc) => {
+					results.push(doc.data());
+				});
+
+				setData(results);
+
+				console.log(results);
+			}
+		})();
+	}, [data]);
+
 	return (
 		<div className="container">
 			<div className="all-berita">
 				<div className="title-berita">Laporan Bencana Terbaru</div>
 				<div className="news-warp-grid">
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-cuaca">
-								<h4>Cuaca Ekstrem</h4>
-							</div>
-							<div className="news-title">
-								<Link to="/News">
-									Hujan Deras Sebabkan Bencana di Sejumlah
-									Kecamatan Utara Sukabumi
-								</Link>
-							</div>
-							<div className="image-event">
-								<img src="/images/Cuaca Ekstrem.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
+					{data.map((item: any, index: number) => (
+						<div className="col-nw1" key={index}>
+							<div className="news-grid">
+								<div className="news-event-cuaca">
+									<h4>{item.description}</h4>
+								</div>
+								<div className="news-title">
+									<Link to="/News">
+										Gempa bumi mengguncang pesisir selatan Sumatra Barat
+									</Link>
+								</div>
+								<div className="image-event">
+									<img src="/images/Gempa.png" alt="" />
+								</div>
+								<div className="news-date">Senin, 6 Juni 2022</div>
+								<div className="news-article">
+									{item.details}
+								</div>
 							</div>
 						</div>
-					</div>
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-gempa">
-								<h4>Gempa Bumi</h4>
-							</div>
-							<div className="news-title">
-								Gempa Bumi 5,1 SR Guncang Nusa Tenggara Barat
-								Siang Ini
-							</div>
-							<div className="image-event">
-								<img src="/images/Gempa.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
-							</div>
-						</div>
-					</div>
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-cuaca">
-								<h4>Cuaca Ekstrem</h4>
-							</div>
-							<div className="news-title">
-								<Link to="/News">
-									Hujan Deras Sebabkan Bencana di Sejumlah
-									Kecamatan Utara Sukabumi
-								</Link>
-							</div>
-							<div className="image-event">
-								<img src="/images/Cuaca Ekstrem.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
-							</div>
-						</div>
-					</div>
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-cuaca">
-								<h4>Cuaca Ekstrem</h4>
-							</div>
-							<div className="news-title">
-								<Link to="/News">
-									Hujan Deras Sebabkan Bencana di Sejumlah
-									Kecamatan Utara Sukabumi
-								</Link>
-							</div>
-							<div className="image-event">
-								<img src="/images/Cuaca Ekstrem.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
-							</div>
-						</div>
-					</div>
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-gempa">
-								<h4>Gempa Bumi</h4>
-							</div>
-							<div className="news-title">
-								Gempa Bumi 5,1 SR Guncang Nusa Tenggara Barat
-								Siang Ini
-							</div>
-							<div className="image-event">
-								<img src="/images/Gempa.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
-							</div>
-						</div>
-					</div>
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-cuaca">
-								<h4>Cuaca Ekstrem</h4>
-							</div>
-							<div className="news-title">
-								<Link to="/News">
-									Hujan Deras Sebabkan Bencana di Sejumlah
-									Kecamatan Utara Sukabumi
-								</Link>
-							</div>
-							<div className="image-event">
-								<img src="/images/Cuaca Ekstrem.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
-							</div>
-						</div>
-					</div>
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-cuaca">
-								<h4>Cuaca Ekstrem</h4>
-							</div>
-							<div className="news-title">
-								<Link to="/News">
-									Hujan Deras Sebabkan Bencana di Sejumlah
-									Kecamatan Utara Sukabumi
-								</Link>
-							</div>
-							<div className="image-event">
-								<img src="/images/Cuaca Ekstrem.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
-							</div>
-						</div>
-					</div>
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-gempa">
-								<h4>Gempa Bumi</h4>
-							</div>
-							<div className="news-title">
-								Gempa Bumi 5,1 SR Guncang Nusa Tenggara Barat
-								Siang Ini
-							</div>
-							<div className="image-event">
-								<img src="/images/Gempa.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
-							</div>
-						</div>
-					</div>
-					<div className="col-nw1">
-						<div className="news-grid">
-							<div className="news-event-cuaca">
-								<h4>Cuaca Ekstrem</h4>
-							</div>
-							<div className="news-title">
-								<Link to="/News">
-									Hujan Deras Sebabkan Bencana di Sejumlah
-									Kecamatan Utara Sukabumi
-								</Link>
-							</div>
-							<div className="image-event">
-								<img src="/images/Cuaca Ekstrem.png" alt="" />
-							</div>
-							<div className="news-date">Senin, 6 Juni 2022</div>
-							<div className="news-article">
-								Lorem ipsum dolor sit amet consectetur
-								adipisicing elit. Sint, ullam nam laudantium
-								voluptates adipisci placeat hic ab, a
-								necessitatibus repellat reiciendis ea ipsa minus
-								eos omnis. Officia odit aspernatur enim.
-							</div>
-						</div>
-					</div>
+					))}
 				</div>
 			</div>
 			<style>{`
@@ -263,24 +97,6 @@ const AllBerita = () => {
 				padding: 1px 12px;
 			}
 			
-			.news-event-gempa{
-				display:flex;
-			}
-			.news-event-gempa h4 {
-				text-align: center;
-				font-family: "Poppins";
-				font-style: normal;
-				font-weight: 600;
-				font-size: 14px;
-				line-height: 27px;
-				color: #a93261;
-				border-radius: 38px;
-				background: #fce7f3;
-				box-sizing: border-box;
-				height: 30px;
-				padding: 1px 12px;
-			}
-			
 			.news-title a {
 				font-family: "Poppins";
 				font-style: normal;
@@ -290,6 +106,10 @@ const AllBerita = () => {
 				color: #000000;
 				margin-bottom: 10px;
 				text-decoration: none;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
 			}
 			
 			.news-title :hover {
@@ -318,6 +138,10 @@ const AllBerita = () => {
 				font-size: 16px;
 				line-height: 24px;
 				color: #777e8b;
+				display: -webkit-box;
+				-webkit-line-clamp: 4;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
 			}
 			
 			@media screen and (max-width: 768px) {

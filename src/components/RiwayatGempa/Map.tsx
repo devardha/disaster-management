@@ -1,83 +1,94 @@
 import { MapContainer, TileLayer, Circle, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
+import L, { LatLngExpression } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 const CustomMarker = () => {
-	return L.divIcon({
-		html: `<span class="marker" ><span class="inner-marker" ></span></span>`,
-		iconSize: [40, 40],
-	});
+  return L.divIcon({
+    html: `<span class="marker" ><span class="inner-marker" ></span></span>`,
+    iconSize: [40, 40],
+  });
 };
 
+interface peta {
+  lat: number;
+  lng: number;
+  Potensi: string;
+  Wilayah: string;
+  Tanggal: string;
+  Jam: number;
+  Magnitude: string;
+  Kedalaman: string;
+}
+
 const Map = () => {
-	const [coordinates, setCoordinates] = useState<any>();
-	const [earthquake, setEarthquake] = useState<any>();
+  const [coordinates, setCoordinates] = useState<peta>();
+  const [earthquake, setEarthquake] = useState<peta>();
 
-	useEffect(() => {
-		axios
-			.get(
-				`https://api.allorigins.win/get?url=${encodeURIComponent(
-					"https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json"
-				)}`
-			)
-			.then((res) => {
-				const json = JSON.parse(res.data.contents);
-				const gempa = json.Infogempa.gempa;
-				const coordinates = gempa.Coordinates.split(",").map(
-					(item: string) => parseFloat(item)
-				);
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.allorigins.win/get?url=${encodeURIComponent(
+          "https://data.bmkg.go.id/DataMKG/TEWS/autogempa.json"
+        )}`
+      )
+      .then((res) => {
+        const json = JSON.parse(res.data.contents);
+        const gempa = json.Infogempa.gempa;
+        const coordinates = gempa.Coordinates.split(",").map((item: string) =>
+          parseFloat(item)
+        );
 
-				setEarthquake(gempa);
-				setCoordinates(coordinates);
-			});
-	}, []);
+        setEarthquake(gempa);
+        setCoordinates(coordinates);
+      });
+  }, []);
 
-	return (
-		<div className="map-section">
-			<div className="map-container">
-				<div className="map">
-					{coordinates && (
-						<MapContainer
-							center={coordinates}
-							zoom={9}
-							scrollWheelZoom={false}
-							style={{ height: "100%", width: "100%" }}
-						>
-							<TileLayer
-								attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-							/>
-							<Marker
-								icon={CustomMarker()}
-								position={coordinates}
-								draggable={false}
-							>
-								<Popup>aaa</Popup>
-							</Marker>
-						</MapContainer>
-					)}
-				</div>
-				<div className="map-detail">
-					<div className="label">{earthquake?.Potensi}</div>
-					<div className="loc">{earthquake?.Wilayah}</div>
-					<p className="coordinates">
-						{earthquake?.Tanggal}, {earthquake?.Jam}
-					</p>
-					<div className="additional-info">
-						<div className="info-card">
-							<div>Magnitudo</div>
-							<div className="value">{earthquake?.Magnitude}</div>
-						</div>
-						<div className="info-card">
-							<div>Kedalaman</div>
-							<div className="value">{earthquake?.Kedalaman}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<style>{`
+  return (
+    <div className="map-section">
+      <div className="map-container">
+        <div className="map">
+          {coordinates && (
+            <MapContainer
+              center={coordinates}
+              zoom={9}
+              scrollWheelZoom={false}
+              style={{ height: "100%", width: "100%" }}
+            >
+              <TileLayer
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker
+                icon={CustomMarker()}
+                position={coordinates}
+                draggable={false}
+              >
+                <Popup>aaa</Popup>
+              </Marker>
+            </MapContainer>
+          )}
+        </div>
+        <div className="map-detail">
+          <div className="label">{earthquake?.Potensi}</div>
+          <div className="loc">{earthquake?.Wilayah}</div>
+          <p className="coordinates">
+            {earthquake?.Tanggal}, {earthquake?.Jam}
+          </p>
+          <div className="additional-info">
+            <div className="info-card">
+              <div>Magnitudo</div>
+              <div className="value">{earthquake?.Magnitude}</div>
+            </div>
+            <div className="info-card">
+              <div>Kedalaman</div>
+              <div className="value">{earthquake?.Kedalaman}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>{`
 				.leaflet-div-icon {
 					border-style: none;
 					background-color: #0000;
@@ -171,8 +182,8 @@ const Map = () => {
 					}
 				}
 			`}</style>
-		</div>
-	);
+    </div>
+  );
 };
 
 export default Map;
