@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import {render, screen} from '@testing-library/react';
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar/index';
 
 test ('Navbar component', () =>{
     const check = screen.getByRole('checkbox');
