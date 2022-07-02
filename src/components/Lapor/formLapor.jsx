@@ -272,6 +272,9 @@ const FormLapor = () => {
 				.form {
 					padding: 0 20px;
 				}
+				.form h1{
+					font size:20px;
+				}
 			
 				/* h3 {
 					text-align: center;

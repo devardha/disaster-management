@@ -10,7 +10,7 @@ const News = () => {
                 </div>
                 <div className="warp-flex">
                     <div className="news-writer">Penulis</div>
-                    <div className="news-dates">Senin, 6 Jumi 2022</div>
+                    <div className="news-dates">Senin, 6 Juni 2022</div>
                     <div className="news-event">
                         <h4>Cuaca Ekstrem</h4>
                     </div>

@@ -66,3 +66,29 @@
     font-size: 20px;
     color: #000000;
 }
+
+@media screen and (max-width: 576px){
+    .news-title1{
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .news-image img{
+        display: flex;
+        width: 310px;
+        height: 200px;
+    }
+    .warp-flex{
+        width: 50%;
+        gap: 10px;
+        margin-left: 25%;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+    .news-dates{
+        font-size: medium;
+    }
+   .news-content p{
+    font-size: 16px;
+   }
+}
