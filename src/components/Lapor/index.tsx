@@ -41,7 +41,7 @@ const FormLapor = () => {
 				<h1>LAPOR BENCANA TERKINI</h1>
 				<div className="form-row">
 					<div className="form-inputs left">
-						<label className="form-label">
+						<label className="form-label" htmlFor="namaLengkap">
 							Nama Lengkap <span>*</span>
 						</label>
 						<input
@@ -61,7 +61,7 @@ const FormLapor = () => {
 					</div>
 
 					<div className="form-inputs">
-						<label className="form-label">
+						<label className="form-label" htmlFor="nomorHandphone">
 							Nomor Handphone <span>*</span>
 						</label>
 						<input
@@ -82,7 +82,7 @@ const FormLapor = () => {
 				</div>
 
 				<div className="form-inputs">
-					<label className="form-label">
+					<label className="form-label" htmlFor="keteranganBencana">
 						Keterangan Bencana <span>*</span>
 					</label>
 					<input
@@ -102,7 +102,7 @@ const FormLapor = () => {
 				</div>
 
 				<div className="form-inputs">
-					<label className="form-label">
+					<label className="form-label" htmlFor="deskripsi">
 						Deskripsi Singkat <span>*</span>
 					</label>
 					<input
@@ -122,7 +122,10 @@ const FormLapor = () => {
 				</div>
 
 				<div className="form-inputs">
-					<label className="form-label">
+					<label
+						className="form-label"
+						htmlFor="alamatKejadianBencana"
+					>
 						Alamat Kejadian Bencana <span>*</span>
 					</label>
 					<input
@@ -142,7 +145,10 @@ const FormLapor = () => {
 				</div>
 
 				<div className="form-inputs">
-					<label className="form-label">
+					<label
+						className="form-label"
+						htmlFor="kronologiKejadianBencana"
+					>
 						Kronologi Kejadian Bencana <span>*</span>
 					</label>
 					<textarea
