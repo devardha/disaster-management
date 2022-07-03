@@ -1,7 +1,6 @@
 import axios from "axios";
 import { setCuaca } from "../reducers/cuaca";
-
-interface datadaerah {
+interface Cuaca {
   nama_daerah: string;
 }
 
@@ -16,8 +15,9 @@ export const loadCuaca =
       .then((res) => {
         const json = JSON.parse(res.data.contents);
         const data = json.data;
+        console.log(data);
         const filtered = data.filter(
-          (item: datadaerah) => item.nama_daerah === sublocation
+          (item: Cuaca) => item.nama_daerah === sublocation
         );
 
         dispatch(setCuaca(filtered[0]));

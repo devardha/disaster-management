@@ -6,6 +6,11 @@ import locations from "../../data/locations.json";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import Carousel from "./Carousel";
 
+interface Loation {
+	name: string;
+	locations: string[];
+}
+
 const PrakiraanCuaca = () => {
   const [selectedLocation, setSelectedLocation] = useState({
     location: "DKI Jakarta",
@@ -15,6 +20,7 @@ const PrakiraanCuaca = () => {
 
   const dispatch: Dispatch<any> = useDispatch();
 
+<<<<<<< HEAD
   useEffect(() => {
     (async () => {
       const formatLocation = selectedLocation.location.replace(/\s/g, "");
@@ -70,6 +76,78 @@ const PrakiraanCuaca = () => {
         <Carousel />
       </div>
       <style>{`
+=======
+	console.log(locations);
+
+	useEffect(() => {
+		(async () => {
+			const formatLocation = selectedLocation.location.replace(/\s/g, "");
+			dispatch(loadCuaca(formatLocation, selectedLocation.sublocation));
+		})();
+	}, [dispatch, selectedLocation]);
+
+	return (
+		<>
+			<div className="container prakiraan-cuaca">
+				<h2>Prakiraan Cuaca</h2>
+				<div className="cuaca-header">
+					<h3>
+						{`${selectedLocation.sublocation}, ${selectedLocation.location}`}
+						, Indonesia
+					</h3>
+					<div className="buttons">
+						<div className="select-location">
+							<button onClick={() => setOpen(!open)}>
+								{selectedLocation
+									? selectedLocation.sublocation
+									: "Pilih Lokasi"}
+								<HiOutlineChevronDown />
+							</button>
+							{open && (
+								<div className="dropdown">
+									{locations.map(
+										(item: Loation, index: number) => (
+											<div key={index} className="item">
+												<div>
+													{item.locations.map(
+														(
+															loc,
+															index: number
+														) => (
+															<div
+																className="sublocation"
+																key={index}
+																onClick={() => {
+																	setSelectedLocation(
+																		{
+																			location:
+																				item.name,
+																			sublocation:
+																				loc,
+																		}
+																	);
+																	setOpen(
+																		false
+																	);
+																}}
+															>
+																{loc}
+															</div>
+														)
+													)}
+												</div>
+											</div>
+										)
+									)}
+								</div>
+							)}
+						</div>
+					</div>
+				</div>
+				<Carousel />
+			</div>
+			<style>{`
+>>>>>>> 73b6e541f11ba094bce929b9d6aad270c50e5bd4
 				.buttons{
 					display:flex;
 				}
