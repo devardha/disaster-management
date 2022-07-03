@@ -1,5 +1,5 @@
-import { MapContainer, TileLayer, Circle, Marker, Popup } from "react-leaflet";
-import L, { LatLngExpression } from "leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useState } from "react";
 import axios from "axios";

@@ -6,38 +6,6 @@ import locations from "../../data/locations.json";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import Carousel from "./Carousel";
 
-type PerkiraanCuaca = {
-	code: string;
-	t: number;
-};
-
-const data: PerkiraanCuaca[] = [
-	{
-		code: "0",
-		t: 24,
-	},
-	{
-		code: "1",
-		t: 25,
-	},
-	{
-		code: "61",
-		t: 23,
-	},
-	{
-		code: "3",
-		t: 24,
-	},
-	{
-		code: "97",
-		t: 27,
-	},
-	{
-		code: "4",
-		t: 28,
-	},
-];
-
 const PrakiraanCuaca = () => {
 	const [selectedLocation, setSelectedLocation] = useState({
 		location: "DKI Jakarta",
@@ -112,7 +80,7 @@ const PrakiraanCuaca = () => {
 						</div>
 					</div>
 				</div>
-				<Carousel data={data} />
+				<Carousel />
 			</div>
 			<style>{`
 				.buttons{

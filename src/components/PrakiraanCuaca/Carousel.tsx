@@ -4,12 +4,7 @@ import { useCuaca } from "../../redux/reducers/cuaca";
 
 useEmblaCarousel.globalOptions = { align: "start" };
 
-interface cData {
-	code: string;
-	t: number;
-}
-
-const Carousel = ({ data }: any) => {
+const Carousel = () => {
 	const [emblaRef] = useEmblaCarousel();
 	const { cuaca } = useCuaca();
 
@@ -142,6 +137,8 @@ const Carousel = ({ data }: any) => {
 											</div>
 										);
 									}
+
+									return <></>;
 								}
 							);
 						})}
