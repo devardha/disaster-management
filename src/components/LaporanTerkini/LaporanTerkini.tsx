@@ -5,62 +5,69 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 interface iData {
-  description?: string;
-  id: string;
-  details?: string;
-  bencana?: string;
-  date?: any;
+	description?: string;
+	id: string;
+	details?: string;
+	bencana?: string;
+	date?: any;
 }
 
 const LaporanTerkini = () => {
-  const [data, setData] = useState<iData[]>([]);
+	const [data, setData] = useState<iData[]>([]);
 
-  useEffect(() => {
-    (async () => {
-      if (data.length === 0) {
-        const q = query(collection(db, "laporan"));
-        const querySnapshot = await getDocs(q);
+	useEffect(() => {
+		(async () => {
+			if (data.length === 0) {
+				const q = query(collection(db, "laporan"));
+				const querySnapshot = await getDocs(q);
 
-        const results: iData[] = [];
-        querySnapshot.forEach((doc) => {
-          results.push({
-            description: doc.data().description,
-            id: doc.id,
-            details: doc.data().details,
-            bencana: doc.data().bencana,
-            date: doc.data().date,
-          });
-        });
+				const results: iData[] = [];
+				querySnapshot.forEach((doc) => {
+					results.push({
+						description: doc.data().description,
+						id: doc.id,
+						details: doc.data().details,
+						bencana: doc.data().bencana,
+						date: doc.data().date,
+					});
+				});
 
-        setData(results);
-      }
-    })();
-  }, [data]);
+				setData(results);
+			}
+		})();
+	}, [data]);
 
-  return (
-    <div className="container">
-      <div className="all-berita">
-        <div className="berita">Laporan Terkini</div>
-        <div className="news-warp-grid">
-          {data.map((item: iData, index: number) => (
-            <div className="col-nw1" key={index}>
-              <div className="news-grid">
-                <div className="news-event-cuaca">
-                  <h4>{item.bencana}</h4>
-                </div>
-                <div className="news-title">
-                  <Link to={`/News/${item.id}`}>{item.description}</Link>
-                </div>
-                <div className="news-date">
-                  {format(new Date(item.date), "dd MMMM yyyy")}
-                </div>
-                <div className="news-article">{item.details}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <style>{`
+	return (
+		<div className="container">
+			<div className="all-berita">
+				<div className="berita">Laporan Terkini</div>
+				<div className="news-warp-grid">
+					{data.map((item: iData, index: number) => (
+						<div className="col-nw1" key={index}>
+							<div className="news-grid">
+								<div className="news-event-cuaca">
+									<h4>{item.bencana}</h4>
+								</div>
+								<div className="news-title">
+									<Link to={`/laporan/${item.id}`}>
+										{item.description}
+									</Link>
+								</div>
+								<div className="news-date">
+									{format(
+										new Date(item.date),
+										"dd MMMM yyyy"
+									)}
+								</div>
+								<div className="news-article">
+									{item.details}
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+			<style>{`
 			@import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900");
 
 			.all-berita {
@@ -179,8 +186,8 @@ const LaporanTerkini = () => {
 			}
 			
 			`}</style>
-    </div>
-  );
+		</div>
+	);
 };
 
 export default LaporanTerkini;

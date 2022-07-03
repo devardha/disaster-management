@@ -53,7 +53,7 @@ const AllBerita = () => {
 									<h4>{item.bencana}</h4>
 								</div>
 								<div className="news-title">
-									<Link to={`/News/${item.id}`}>
+									<Link to={`/laporan/${item.id}`}>
 										{item.description}
 									</Link>
 								</div>
