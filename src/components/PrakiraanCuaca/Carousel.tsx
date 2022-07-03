@@ -184,7 +184,7 @@ const Carousel = ({ data }: any) => {
 				}
 				.embla__slide {
 					position: relative;
-					flex: 0 0 15%;
+					flex: 0 0 16%;
 					background:#D9D9D91F;
 					padding:24px;
 					display:flex;

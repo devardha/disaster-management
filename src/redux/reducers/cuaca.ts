@@ -2,8 +2,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 
+interface CuacaParams {
+	id: string;
+	jenis: string;
+	type: string;
+}
+
+interface Cuaca {
+	nama_daerah: string;
+	parameter: CuacaParams[]
+}
 export interface CuacaStateType {
-	cuaca: any;
+	cuaca: Cuaca;
 }
 
 const GempaSlice = createSlice({

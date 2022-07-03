@@ -2,8 +2,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 
+interface Gempa {
+	lat: number;
+	lng: number;
+	Potensi: string;
+	Wilayah: string;
+	Tanggal: string;
+	Jam: number;
+	Magnitude: string;
+	Kedalaman: string;
+	Coordinates: string;
+}
+
 export interface GempaStateType {
-	gempa: any;
+	gempa: Gempa[];
 }
 
 const GempaSlice = createSlice({
