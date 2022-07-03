@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { db } from "../../firebase/firebaseClient";
 import { doc, setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
+import { format } from "date-fns";
 
 interface FormLaporData {
 	name: string;
@@ -10,6 +11,8 @@ interface FormLaporData {
 	address: string;
 	details: string;
 	image?: string;
+	date?: string;
+	bencana?: string;
 }
 
 const FormLapor = () => {
@@ -20,6 +23,8 @@ const FormLapor = () => {
 		address: "",
 		details: "",
 		image: "",
+		date: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'"),
+		bencana: "",
 	});
 
 	const handleSubmit = async (e: React.FormEvent) => {
@@ -86,6 +91,26 @@ const FormLapor = () => {
 						name="keteranganBencana"
 						className="form-input"
 						placeholder="contoh : kebakaran , banjir , tanah longsor"
+						value={formData.bencana}
+						onChange={(e) =>
+							setFormData({
+								...formData,
+								bencana: e.target.value,
+							})
+						}
+					/>
+				</div>
+
+				<div className="form-inputs">
+					<label className="form-label">
+						Deskripsi Singkat <span>*</span>
+					</label>
+					<input
+						id="deskripsi"
+						type="text"
+						name="deskripsi"
+						className="form-input"
+						placeholder="Gempa bumi di kota x"
 						value={formData.description}
 						onChange={(e) =>
 							setFormData({
