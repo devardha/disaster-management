@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebaseClient";
 
+interface iData {
+  description: string;
+}
+
 const LaporanTerkini = () => {
   const [data, setData] = useState<any>([]);
 
@@ -28,7 +32,7 @@ const LaporanTerkini = () => {
       <div className="all-berita">
         <div className="berita">Berita Terkini</div>
         <div className="news-warp-grid">
-          {data.map((item: any, index: number) => (
+          {data.map((item: iData, index: number) => (
             <div className="col-nw1" key={index}>
               <div className="news-grid">
                 <div className="news-event-cuaca">

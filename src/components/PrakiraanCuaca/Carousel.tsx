@@ -2,8 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 
 useEmblaCarousel.globalOptions = { align: "start" };
 
-interface setdata {
-  map: object;
+interface cData {
   code: string;
   t: number;
 }
@@ -72,7 +71,7 @@ const Carousel = ({ data }: any) => {
   return (
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
-        {data.map((item: any, index: number) => (
+        {data.map((item: cData, index: number) => (
           <div className="embla__slide" key={index}>
             <div className="time">13:00 WIB</div>
             <img src={getIcon(item.code)} alt="icon" key={index} />
