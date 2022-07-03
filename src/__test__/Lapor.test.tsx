@@ -2,9 +2,15 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import FromLapor from "../components/Lapor/index";
+import { Provider } from "react-redux";
+import store from "../redux/store";
 
 test("render from Lapor", () => {
-	render(<FromLapor />);
+	render(
+		<Provider store={store}>
+			<FromLapor />
+		</Provider>
+	);
 
 	const nameLabel = screen.getByText(/Nama Lengkap/i);
 	const numberLabel = screen.getByText(/Nomor Handphone/i);

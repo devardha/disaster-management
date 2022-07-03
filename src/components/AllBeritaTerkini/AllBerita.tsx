@@ -4,13 +4,13 @@ import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebaseClient";
 
 interface berita {
-  description: string;
+  description?: string;
   id: string;
-  details: string;
+  details?: string;
 }
 
 const AllBerita = () => {
-  const [data, setData] = useState<any>([]);
+  const [data, setData] = useState<berita[]>([]);
 
   useEffect(() => {
     (async () => {
@@ -18,7 +18,7 @@ const AllBerita = () => {
         const q = query(collection(db, "laporan"));
         const querySnapshot = await getDocs(q);
 
-        const results: any = [];
+        const results: berita[] = [];
         querySnapshot.forEach((doc) => {
           results.push({
             ...doc.data(),

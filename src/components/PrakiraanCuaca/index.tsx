@@ -6,83 +6,77 @@ import locations from "../../data/locations.json";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import Carousel from "./Carousel";
 
+interface Loation {
+  name: string;
+  locations: string[];
+}
+
 const PrakiraanCuaca = () => {
-	const [selectedLocation, setSelectedLocation] = useState({
-		location: "DKI Jakarta",
-		sublocation: "Jakarta Pusat",
-	});
-	const [open, setOpen] = useState(false);
+  const [selectedLocation, setSelectedLocation] = useState({
+    location: "DKI Jakarta",
+    sublocation: "Jakarta Pusat",
+  });
+  const [open, setOpen] = useState(false);
 
-	const dispatch: Dispatch<any> = useDispatch();
+  const dispatch: Dispatch<any> = useDispatch();
 
-	useEffect(() => {
-		(async () => {
-			const formatLocation = selectedLocation.location.replace(/\s/g, "");
-			dispatch(loadCuaca(formatLocation, selectedLocation.sublocation));
-		})();
-	}, [dispatch, selectedLocation]);
+  console.log(locations);
 
-	return (
-		<>
-			<div className="container prakiraan-cuaca">
-				<h2>Prakiraan Cuaca</h2>
-				<div className="cuaca-header">
-					<h3>
-						{`${selectedLocation.sublocation}, ${selectedLocation.location}`}
-						, Indonesia
-					</h3>
-					<div className="buttons">
-						<div className="select-location">
-							<button onClick={() => setOpen(!open)}>
-								{selectedLocation
-									? selectedLocation.sublocation
-									: "Pilih Lokasi"}
-								<HiOutlineChevronDown />
-							</button>
-							{open && (
-								<div className="dropdown">
-									{locations.map(
-										(item: any, index: number) => (
-											<div key={index} className="item">
-												<div>
-													{item.locations.map(
-														(
-															loc: any,
-															index: number
-														) => (
-															<div
-																className="sublocation"
-																key={index}
-																onClick={() => {
-																	setSelectedLocation(
-																		{
-																			location:
-																				item.name,
-																			sublocation:
-																				loc,
-																		}
-																	);
-																	setOpen(
-																		false
-																	);
-																}}
-															>
-																{loc}
-															</div>
-														)
-													)}
-												</div>
-											</div>
-										)
-									)}
-								</div>
-							)}
-						</div>
-					</div>
-				</div>
-				<Carousel />
-			</div>
-			<style>{`
+  useEffect(() => {
+    (async () => {
+      const formatLocation = selectedLocation.location.replace(/\s/g, "");
+      dispatch(loadCuaca(formatLocation, selectedLocation.sublocation));
+    })();
+  }, [dispatch, selectedLocation]);
+
+  return (
+    <>
+      <div className="container prakiraan-cuaca">
+        <h2>Prakiraan Cuaca</h2>
+        <div className="cuaca-header">
+          <h3>
+            {`${selectedLocation.sublocation}, ${selectedLocation.location}`},
+            Indonesia
+          </h3>
+          <div className="buttons">
+            <div className="select-location">
+              <button onClick={() => setOpen(!open)}>
+                {selectedLocation
+                  ? selectedLocation.sublocation
+                  : "Pilih Lokasi"}
+                <HiOutlineChevronDown />
+              </button>
+              {open && (
+                <div className="dropdown">
+                  {locations.map((item: Loation, index: number) => (
+                    <div key={index} className="item">
+                      <div>
+                        {item.locations.map((loc, index: number) => (
+                          <div
+                            className="sublocation"
+                            key={index}
+                            onClick={() => {
+                              setSelectedLocation({
+                                location: item.name,
+                                sublocation: loc,
+                              });
+                              setOpen(false);
+                            }}
+                          >
+                            {loc}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <Carousel />
+      </div>
+      <style>{`
 				.buttons{
 					display:flex;
 				}
@@ -156,8 +150,8 @@ const PrakiraanCuaca = () => {
 					}
 				}
 			`}</style>
-		</>
-	);
+    </>
+  );
 };
 
 export default PrakiraanCuaca;
