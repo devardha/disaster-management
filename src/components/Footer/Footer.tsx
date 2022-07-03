@@ -43,7 +43,7 @@ const Footer = () => {
 				color: #ffff;
 				justify-content: space-around;
 				font-family: "Poppins", sans-serif;
-				font-size: 12px;
+				font-size: 14px;
 			}
 			
 			footer .link {
@@ -100,7 +100,7 @@ const Footer = () => {
 			}
 			.kontak-row {
 				display: flex;
-				font-size: 16px;
+				font-size: 14px;
 			}
 			
 			@media screen and (max-width: 800px) {

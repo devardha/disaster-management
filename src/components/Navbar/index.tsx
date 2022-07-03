@@ -9,7 +9,7 @@ const Navbar = () => {
 		<>
 			<nav>
 				<div className="container navbar-container">
-					<div className="lo">
+					<div>
 						<Link to="/">
 							<img src="/images/logo.png" alt="logo" />
 						</Link>
@@ -75,7 +75,7 @@ const Navbar = () => {
 				nav {
 					display: flex;
 					background-color: #ffff;
-					box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+					box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 					border-radius: 5px;
 					justify-content: space-around;
 					height: 100px;
@@ -88,7 +88,7 @@ const Navbar = () => {
 					justify-content: space-around;
 				}
 
-				nav a {
+				nav li a {
 					font-size: 16px;
 					font-weight: 400;
 					text-decoration: none;
@@ -187,16 +187,20 @@ const Navbar = () => {
 					}
 					nav a {
 						font-size: 14px;
-						margin-left: -20px;
 					}
 
 					nav ul {
+						width: 100%;
+						padding:8px;
+					}
+
+					nav ul li{
 						width: 100%;
 					}
 
 					nav a {
 						font-size: 14px;
-						margin-left: -20px;
+						width: 100%;
 					}
 
 					nav img {
@@ -215,7 +219,7 @@ const Navbar = () => {
 						right: 0;
 						flex-direction: column;
 						top: 0;
-						width: 40%;
+						width: 50%;
 						align-items: flex-start;
 						justify-content: space-around;
 						z-index: 1;
@@ -235,7 +239,6 @@ const Navbar = () => {
 
 					nav a {
 						font-size: 14px;
-						margin-left: -25px;
 						margin-top: 5px;
 					}
 
@@ -261,7 +264,7 @@ const Navbar = () => {
 					}
 
 					nav ul.open{
-						display:block;
+						display:flex;
 					}
 
 					.navbar-container{
