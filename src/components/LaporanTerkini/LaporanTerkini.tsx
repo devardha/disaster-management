@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebaseClient";
+import { Link } from "react-router-dom";
 
 interface iData {
   description: string;
+  id: string;
+  details: string;
 }
 
 const LaporanTerkini = () => {
@@ -17,7 +20,10 @@ const LaporanTerkini = () => {
 
         const results: any = [];
         querySnapshot.forEach((doc) => {
-          results.push(doc.data());
+          results.push({
+            ...doc.data(),
+            id: doc.id,
+          });
         });
 
         setData(results);
@@ -39,16 +45,12 @@ const LaporanTerkini = () => {
                   <h4>{item.description}</h4>
                 </div>
                 <div className="news-title">
-                  Hujan Deras Sebabkan Bencana di Sejumlah Kecamatan Utara
-                  Sukabumi
+                  <Link to={`/News/${item.id}`}>
+                    Gempa bumi mengguncang pesisir selatan Sumatra Barat
+                  </Link>
                 </div>
                 <div className="news-date">Senin, 6 Juni 2022</div>
-                <div className="news-article">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint,
-                  ullam nam laudantium voluptates adipisci placeat hic ab, a
-                  necessitatibus repellat reiciendis ea ipsa minus eos omnis.
-                  Officia odit aspernatur enim.
-                </div>
+                <div className="news-article">{item.details}</div>
               </div>
             </div>
           ))}
@@ -115,7 +117,7 @@ const LaporanTerkini = () => {
 				padding: 1px;
 			}
 			
-			.news-title {
+			.news-title a {
 				font-family: "Poppins";
 				font-style: normal;
 				font-weight: 600;
@@ -123,9 +125,15 @@ const LaporanTerkini = () => {
 				line-height: 27px;
 				color: #000000;
 				margin-bottom: 10px;
+				margin-bottom: 10px;
+				text-decoration: none;
+				display: -webkit-box;
+				-webkit-line-clamp: 3;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
 			}
 			
-			.news-title:hover {
+			.news-title a :hover {
 				color: #5c58b8;
 			}
 			
@@ -146,6 +154,10 @@ const LaporanTerkini = () => {
 				font-size: 16px;
 				line-height: 24px;
 				color: #777e8b;
+				display: -webkit-box;
+				-webkit-line-clamp: 4;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
 			}
 			
 			@media screen and (max-width: 768px) {
