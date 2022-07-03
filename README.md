@@ -22,6 +22,12 @@ A feature that allows users to report a disaster that occurs around the user
 <br />
 ![Earthquake History](https://github.com/devardha/disaster-management/blob/master/assets/report.png)
 
+## Tech Stack
+- Typescript
+- React.js
+- Firebase
+- Redux
+
 ## How to Install
 Clone the project using git and install the dependencies using npm
 
