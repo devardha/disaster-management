@@ -61,7 +61,6 @@ const Navbar = () => {
 				nav ul {
 					display: flex;
 					list-style-type: none;
-					width: 40%;
 					justify-content: space-around;
 				}
 

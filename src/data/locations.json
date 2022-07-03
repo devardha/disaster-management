@@ -1,0 +1,83 @@
+[
+	{
+		"name": "Aceh",
+		"locations": [
+			"Aceh Barat",
+			"Aceh Barat Daya",
+			"Aceh Besar",
+			"Aceh Jaya",
+			"Aceh Selatan",
+			"Aceh Singkil",
+			"Aceh Tamiang",
+			"Aceh Tengah",
+			"Aceh Tenggara",
+			"Aceh Timur",
+			"Aceh Utara",
+			"Banda Aceh",
+			"Bener Meriah",
+			"Bireun",
+			"Gayo Lues",
+			"Langsa",
+			"Lhokseumawe",
+			"Nagan Raya",
+			"Pidie",
+			"Pidie Jaya",
+			"Sabang",
+			"Simeulue",
+			"Subulussalam"
+		]
+	},
+	{
+		"name": "Bali",
+		"locations": [
+			"Amlapura",
+			"Bangli",
+			"Denpasar",
+			"Gianyar",
+			"Mengwi",
+			"Negara",
+			"Semarapura",
+			"Singaraja",
+			"Tabanan"
+		]
+	},
+	{
+		"name": "Bangka Belitung",
+		"locations": [
+			"Jebus",
+			"Koba",
+			"Manggar",
+			"Mentok",
+			"Pangkal Pinang",
+			"Selat Nasik",
+			"Sungai Liat",
+			"Sungai Selan",
+			"Tanjung Pandan",
+			"Toboali",
+			"Pelabuhan Belinyu"
+		]
+	},
+	{
+		"name": "Banten",
+		"locations": [
+			"Anyer",
+			"Bayah",
+			"Binuangen",
+			"Bojonegara",
+			"Carita",
+			"Ciruas",
+			"Gunung kencana",
+			"Kab. Lebak",
+			"Kota Cilegon",
+			"Kota Tangerang",
+			"Labuan",
+			"Malingping",
+			"Pandeglang",
+			"Pelabuhan Merak",
+			"Rangkasbitung",
+			"Serang",
+			"Serpong",
+			"Tigaraksa"
+		]
+	}
+]

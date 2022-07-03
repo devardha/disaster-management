@@ -7,7 +7,7 @@ export interface GempaStateType {
 }
 
 const GempaSlice = createSlice({
-	name: 'CART',
+	name: 'GEMPA',
 	initialState: {
 		gempa: [],
 	} as GempaStateType,

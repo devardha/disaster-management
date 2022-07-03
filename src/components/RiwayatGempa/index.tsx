@@ -39,18 +39,22 @@ const RiwayatGempa = () => {
 					</thead>
 					<tbody>
 						{gempa.length > 0 &&
-							gempa.map((item: Gempa, index: number) => (
-								<tr key={index}>
-									<td className="location">
-										{item?.Wilayah}
-									</td>
-									<td>{item?.Magnitude}</td>
-									<td>{item?.Kedalaman}</td>
-									<td>10 jam yang lalu</td>
-									<td>{item?.Coordinates}</td>
-									<td>{item.Potensi ? item.Potensi : "-"}</td>
-								</tr>
-							))}
+							gempa
+								.slice(0, 5)
+								.map((item: Gempa, index: number) => (
+									<tr key={index}>
+										<td className="location">
+											{item?.Wilayah}
+										</td>
+										<td>{item?.Magnitude}</td>
+										<td>{item?.Kedalaman}</td>
+										<td>10 jam yang lalu</td>
+										<td>{item?.Coordinates}</td>
+										<td>
+											{item.Potensi ? item.Potensi : "-"}
+										</td>
+									</tr>
+								))}
 					</tbody>
 				</table>
 			</div>
