@@ -1,9 +1,42 @@
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/firebaseClient";
+import { useEffect, useState } from "react";
+
+interface iData {
+	description: string;
+	id: string;
+	details: string;
+	bencana: string;
+	date: string;
+}
+
 const News = () => {
-	return (
+
+    const [data, setData] = useState<any>([]);
+	
+    const docId = '92d948bf-fdd4-48a3-904c-a738efb46617'
+
+    useEffect(() => {
+        (async () => {
+            const docRef = doc(db, "laporan", docId);
+            const docSnap = await getDoc(docRef);
+            
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setData(docSnap.data());
+              } else {
+                // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+        })();
+      }, []);
+
+    return (
 		<div className="container">
+            
 			<div className="warp-berita">
 				<div className="news-title1">
-					Gempa bumi mengguncang pesisir selatan Sumatra Barat
+					{data?.description}
 				</div>
 				<div className="news-image">
 					<img src="/images/Gempa.png" alt="" />
@@ -61,6 +94,7 @@ const News = () => {
 					</p>
 				</div>
 			</div>
+           
 			<style>{`
             @import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900");
 
