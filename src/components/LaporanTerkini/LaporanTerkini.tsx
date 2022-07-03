@@ -34,7 +34,7 @@ const LaporanTerkini = () => {
 	return (
 		<div className="container">
 			<div className="all-berita">
-				<div className="berita">Berita Terkini</div>
+				<div className="berita">Laporan Terkini</div>
 				<div className="news-warp-grid">
 					{data.map((item: iData, index: number) => (
 						<div className="col-nw1" key={index}>
