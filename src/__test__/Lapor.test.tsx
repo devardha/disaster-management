@@ -3,7 +3,7 @@ import { render, screen} from "@testing-library/react";
 import FromLapor from "../components/Lapor/index";
 
 test("render from Lapor", () => {
-    const {getByText, getByLabelText} = render (<form/>)
+    const {getByText, getByLabelText} = render (<FromLapor/>)
 
     const nameLabel = getByText(/Nama Lengkap/i)
     const numberLabel = getByText(/Nomor Handphone/i)
