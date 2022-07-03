@@ -25,9 +25,9 @@ const FormLapor = () => {
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
-		setDoc(doc(db, "laporan", uuidv4()), formData)
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err));
+		setDoc(doc(db, "laporan", uuidv4()), formData).catch((err) =>
+			console.log(err)
+		);
 	};
 
 	return (

@@ -4,59 +4,62 @@ import { db } from "../../firebase/firebaseClient";
 import { Link } from "react-router-dom";
 
 interface iData {
-  description: string;
-  id: string;
-  details: string;
+	description: string;
+	id: string;
+	details: string;
 }
 
 const LaporanTerkini = () => {
-  const [data, setData] = useState<any>([]);
+	const [data, setData] = useState<any>([]);
 
-  useEffect(() => {
-    (async () => {
-      if (data.length === 0) {
-        const q = query(collection(db, "laporan"));
-        const querySnapshot = await getDocs(q);
+	useEffect(() => {
+		(async () => {
+			if (data.length === 0) {
+				const q = query(collection(db, "laporan"));
+				const querySnapshot = await getDocs(q);
 
-        const results: any = [];
-        querySnapshot.forEach((doc) => {
-          results.push({
-            ...doc.data(),
-            id: doc.id,
-          });
-        });
+				const results: any = [];
+				querySnapshot.forEach((doc) => {
+					results.push({
+						...doc.data(),
+						id: doc.id,
+					});
+				});
 
-        setData(results);
+				setData(results);
+			}
+		})();
+	}, [data]);
 
-        console.log(results);
-      }
-    })();
-  }, [data]);
-
-  return (
-    <div className="container">
-      <div className="all-berita">
-        <div className="berita">Berita Terkini</div>
-        <div className="news-warp-grid">
-          {data.map((item: iData, index: number) => (
-            <div className="col-nw1" key={index}>
-              <div className="news-grid">
-                <div className="news-event-cuaca">
-                  <h4>{item.description}</h4>
-                </div>
-                <div className="news-title">
-                  <Link to={`/News/${item.id}`}>
-                    Gempa bumi mengguncang pesisir selatan Sumatra Barat
-                  </Link>
-                </div>
-                <div className="news-date">Senin, 6 Juni 2022</div>
-                <div className="news-article">{item.details}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <style>{`
+	return (
+		<div className="container">
+			<div className="all-berita">
+				<div className="berita">Berita Terkini</div>
+				<div className="news-warp-grid">
+					{data.map((item: iData, index: number) => (
+						<div className="col-nw1" key={index}>
+							<div className="news-grid">
+								<div className="news-event-cuaca">
+									<h4>{item.description}</h4>
+								</div>
+								<div className="news-title">
+									<Link to={`/News/${item.id}`}>
+										Gempa bumi mengguncang pesisir selatan
+										Sumatra Barat
+									</Link>
+								</div>
+								<div className="news-date">
+									Senin, 6 Juni 2022
+								</div>
+								<div className="news-article">
+									{item.details}
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+			<style>{`
 			@import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900");
 
 			.all-berita {
@@ -175,8 +178,8 @@ const LaporanTerkini = () => {
 			}
 			
 			`}</style>
-    </div>
-  );
+		</div>
+	);
 };
 
 export default LaporanTerkini;

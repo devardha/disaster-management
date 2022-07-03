@@ -66,8 +66,6 @@ const Carousel = () => {
 		}
 	};
 
-	console.log(cuaca.parameter);
-
 	return (
 		<div className="embla" ref={emblaRef}>
 			<div className="embla__container">
@@ -93,8 +91,6 @@ const Carousel = () => {
 										"T" +
 										time +
 										"Z";
-
-									console.log(new Date(formattedDate));
 
 									if (
 										isToday(new Date(formattedDate)) ||
