@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
 	const [open, setOpen] = useState(false);
+	const { pathname } = useLocation();
 
 	return (
 		<>
@@ -15,13 +16,36 @@ const Navbar = () => {
 					</div>
 					<ul className={`${open ? "open" : ""}`}>
 						<li className="nav-link">
-							<Link to="/">Prakiraan Cuaca</Link>
+							<Link
+								to="/"
+								className={`${
+									pathname === "/" ? "active" : ""
+								}`}
+							>
+								Prakiraan Cuaca
+							</Link>
 						</li>
 						<li className="nav-link">
-							<Link to="/berita-terkini">Berita Terkini</Link>
+							<Link
+								to="/berita-terkini"
+								className={`${
+									pathname === "/berita-terkini"
+										? "active"
+										: ""
+								}`}
+							>
+								Berita Terkini
+							</Link>
 						</li>
 						<li className="nav-link">
-							<Link to="/lapor">Lapor</Link>
+							<Link
+								to="/lapor"
+								className={`${
+									pathname === "/lapor" ? "active" : ""
+								}`}
+							>
+								Lapor
+							</Link>
 						</li>
 					</ul>
 				</div>
@@ -65,7 +89,7 @@ const Navbar = () => {
 				}
 
 				nav a {
-					font-size: 17px;
+					font-size: 16px;
 					font-weight: 400;
 					text-decoration: none;
 					color: rgb(0, 0, 0);
@@ -74,6 +98,12 @@ const Navbar = () => {
 					border-radius: 30px;
 					padding: 10px;
 					display: flex;
+					margin-left:4px;
+				}
+
+				a.active{
+					background-color: #2fb18b;
+					color: white;
 				}
 
 				nav li {
