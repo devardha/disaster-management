@@ -34,7 +34,7 @@ const Navbar = () => {
 										: ""
 								}`}
 							>
-								Berita Terkini
+								Laporan Terkini
 							</Link>
 						</li>
 						<li className="nav-link">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { db } from "../../firebase/firebaseClient";
 import { doc, setDoc } from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
+import { format } from "date-fns";
 
 interface FormLaporData {
 	name: string;
@@ -10,6 +11,8 @@ interface FormLaporData {
 	address: string;
 	details: string;
 	image?: string;
+	date?: string;
+	bencana?: string;
 }
 
 const FormLapor = () => {
@@ -20,6 +23,8 @@ const FormLapor = () => {
 		address: "",
 		details: "",
 		image: "",
+		date: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'"),
+		bencana: "",
 	});
 
 	const handleSubmit = async (e: React.FormEvent) => {
@@ -36,7 +41,7 @@ const FormLapor = () => {
 				<h1>LAPOR BENCANA TERKINI</h1>
 				<div className="form-row">
 					<div className="form-inputs left">
-						<label className="form-label">
+						<label className="form-label" htmlFor="namaLengkap">
 							Nama Lengkap <span>*</span>
 						</label>
 						<input
@@ -56,7 +61,7 @@ const FormLapor = () => {
 					</div>
 
 					<div className="form-inputs">
-						<label className="form-label">
+						<label className="form-label" htmlFor="nomorHandphone">
 							Nomor Handphone <span>*</span>
 						</label>
 						<input
@@ -77,7 +82,7 @@ const FormLapor = () => {
 				</div>
 
 				<div className="form-inputs">
-					<label className="form-label">
+					<label className="form-label" htmlFor="keteranganBencana">
 						Keterangan Bencana <span>*</span>
 					</label>
 					<input
@@ -86,6 +91,26 @@ const FormLapor = () => {
 						name="keteranganBencana"
 						className="form-input"
 						placeholder="contoh : kebakaran , banjir , tanah longsor"
+						value={formData.bencana}
+						onChange={(e) =>
+							setFormData({
+								...formData,
+								bencana: e.target.value,
+							})
+						}
+					/>
+				</div>
+
+				<div className="form-inputs">
+					<label className="form-label" htmlFor="deskripsi">
+						Deskripsi Singkat <span>*</span>
+					</label>
+					<input
+						id="deskripsi"
+						type="text"
+						name="deskripsi"
+						className="form-input"
+						placeholder="Gempa bumi di kota x"
 						value={formData.description}
 						onChange={(e) =>
 							setFormData({
@@ -97,7 +122,10 @@ const FormLapor = () => {
 				</div>
 
 				<div className="form-inputs">
-					<label className="form-label">
+					<label
+						className="form-label"
+						htmlFor="alamatKejadianBencana"
+					>
 						Alamat Kejadian Bencana <span>*</span>
 					</label>
 					<input
@@ -117,7 +145,10 @@ const FormLapor = () => {
 				</div>
 
 				<div className="form-inputs">
-					<label className="form-label">
+					<label
+						className="form-label"
+						htmlFor="kronologiKejadianBencana"
+					>
 						Kronologi Kejadian Bencana <span>*</span>
 					</label>
 					<textarea
