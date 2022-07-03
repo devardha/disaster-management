@@ -2,64 +2,79 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, query, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/firebaseClient";
+import { format } from "date-fns";
 
 interface berita {
-  description?: string;
-  id: string;
-  details?: string;
+	description?: string;
+	id: string;
+	details?: string;
+	bencana: string;
+	date: any;
+	image: string;
 }
 
 const AllBerita = () => {
-  const [data, setData] = useState<berita[]>([]);
+	const [data, setData] = useState<berita[]>([]);
 
-  useEffect(() => {
-    (async () => {
-      if (data.length === 0) {
-        const q = query(collection(db, "laporan"));
-        const querySnapshot = await getDocs(q);
+	useEffect(() => {
+		(async () => {
+			if (data.length === 0) {
+				const q = query(collection(db, "laporan"));
+				const querySnapshot = await getDocs(q);
 
-        const results: berita[] = [];
-        querySnapshot.forEach((doc) => {
-          results.push({
-            ...doc.data(),
-            id: doc.id,
-          });
-        });
+				const results: berita[] = [];
+				querySnapshot.forEach((doc) => {
+					results.push({
+						description: doc.data().description,
+						id: doc.id,
+						details: doc.data().details,
+						bencana: doc.data().bencana,
+						date: doc.data().date,
+						image: doc.data().image,
+					});
+				});
 
-        setData(results);
+				setData(results);
 
-        console.log(results);
-      }
-    })();
-  }, [data]);
+				console.log(results);
+			}
+		})();
+	}, [data]);
 
-  return (
-    <div className="container">
-      <div className="all-berita">
-        <div className="title-berita">Laporan Bencana Terbaru</div>
-        <div className="news-warp-grid">
-          {data.map((item: berita, index: number) => (
-            <div className="col-nw1" key={index}>
-              <div className="news-grid">
-                <div className="news-event-cuaca">
-                  <h4>{item.description}</h4>
-                </div>
-                <div className="news-title">
-                  <Link to={`/News/${item.id}`}>
-                    Gempa bumi mengguncang pesisir selatan Sumatra Barat
-                  </Link>
-                </div>
-                <div className="image-event">
-                  <img src="/images/Gempa.png" alt="" />
-                </div>
-                <div className="news-date">Senin, 6 Juni 2022</div>
-                <div className="news-article">{item.details}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <style>{`
+	return (
+		<div className="container">
+			<div className="all-berita">
+				<div className="title-berita">Laporan Bencana Terbaru</div>
+				<div className="news-warp-grid">
+					{data.map((item: berita, index: number) => (
+						<div className="col-nw1" key={index}>
+							<div className="news-grid">
+								<div className="news-event-cuaca">
+									<h4>{item.bencana}</h4>
+								</div>
+								<div className="news-title">
+									<Link to={`/News/${item.id}`}>
+										{item.description}
+									</Link>
+								</div>
+								<div className="image-event">
+									<img src={item.image} alt="" />
+								</div>
+								<div className="news-date">
+									{format(
+										new Date(item.date),
+										"dd MMMM yyyy"
+									)}
+								</div>
+								<div className="news-article">
+									{item.details}
+								</div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+			<style>{`
 			@import url("https://fonts.googleapis.com/css?family=Poppins:400,700,900");
 
 			.all-berita {
@@ -168,8 +183,8 @@ const AllBerita = () => {
 			}
 			
 			`}</style>
-    </div>
-  );
+		</div>
+	);
 };
 
 export default AllBerita;
