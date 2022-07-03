@@ -6,6 +6,11 @@ import locations from "../../data/locations.json";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import Carousel from "./Carousel";
 
+interface Loation {
+	name: string;
+	locations: string[];
+}
+
 const PrakiraanCuaca = () => {
 	const [selectedLocation, setSelectedLocation] = useState({
 		location: "DKI Jakarta",
@@ -14,6 +19,8 @@ const PrakiraanCuaca = () => {
 	const [open, setOpen] = useState(false);
 
 	const dispatch: Dispatch<any> = useDispatch();
+
+	console.log(locations);
 
 	useEffect(() => {
 		(async () => {
@@ -42,12 +49,12 @@ const PrakiraanCuaca = () => {
 							{open && (
 								<div className="dropdown">
 									{locations.map(
-										(item: any, index: number) => (
+										(item: Loation, index: number) => (
 											<div key={index} className="item">
 												<div>
 													{item.locations.map(
 														(
-															loc: any,
+															loc,
 															index: number
 														) => (
 															<div
