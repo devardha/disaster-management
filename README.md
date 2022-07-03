@@ -4,6 +4,7 @@ Indonesia Disaster Information System (IDIS) is a disaster information system we
 ## Features
 ### Weather Forecast
 Weather forecast presents weather forecast data from various regions in Indonesia that you can choose
+![Weather forecast](https://github.com/devardha/disaster-management/assets/weather-forecast.png)
 
 ### Earthquake History
 
