@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 
 interface iData {
-  description: string;
+  description?: string;
   id: string;
-  details: string;
-  bencana: string;
-  date: string;
+  details?: string;
+  bencana?: string;
+  date?: any;
 }
 
 const LaporanTerkini = () => {
@@ -24,8 +24,11 @@ const LaporanTerkini = () => {
         const results: iData[] = [];
         querySnapshot.forEach((doc) => {
           results.push({
-            ...doc.data(),
+            description: doc.data().description,
             id: doc.id,
+            details: doc.data().details,
+            bencana: doc.data().bencana,
+            date: doc.data().date,
           });
         });
 
