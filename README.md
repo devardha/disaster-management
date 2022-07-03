@@ -13,3 +13,16 @@ Weather forecast presents weather forecast data from various regions in Indonesi
 ## Report a disaster
 
 ## How to Install
+Clone the project using git and install the dependencies using npm
+
+```bash
+git clone https://github.com/devardha/disaster-management.git
+cd disaster-management
+npm install
+```
+
+Run the application
+
+```bash
+npm start
+```
