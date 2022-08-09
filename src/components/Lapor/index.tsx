@@ -26,13 +26,15 @@ const FormLapor = () => {
 		date: format(new Date(), "yyyy-MM-dd'T'HH:mm:ss'Z'"),
 		bencana: "",
 	});
+	const [dataSent, setDataSent] = useState(false);
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
 
-		setDoc(doc(db, "laporan", uuidv4()), formData).catch((err) =>
+		await setDoc(doc(db, "laporan", uuidv4()), formData).catch((err) =>
 			console.log(err)
 		);
+		setDataSent(true);
 	};
 
 	return (
@@ -185,7 +187,11 @@ const FormLapor = () => {
 					Kirim
 				</button>
 
-				<h3>Terima Kasih, Kami akan segera merespon Laporan Anda</h3>
+				{dataSent && (
+					<h3>
+						Terima Kasih, Kami akan segera merespon Laporan Anda
+					</h3>
+				)}
 			</form>
 			<style>{`
 			.form-lapor-content {
@@ -194,6 +200,7 @@ const FormLapor = () => {
 				position: relative;
 				align-items: center;
 				font-family: "Poppins", sans-serif;
+				min-height: 100vh;
 			}
 			
 			.form {
