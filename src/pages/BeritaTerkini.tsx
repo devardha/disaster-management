@@ -4,7 +4,14 @@ import AllBerita from "../components/AllBeritaTerkini/AllBerita";
 const Beritaterkini = () => {
 	return (
 		<Layout>
-			<AllBerita />
+			<main>
+				<AllBerita />
+			</main>
+			<style>{`
+				main{
+					min-height:100vh;
+				}
+			`}</style>
 		</Layout>
 	);
 };

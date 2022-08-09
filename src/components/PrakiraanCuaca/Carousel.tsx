@@ -69,6 +69,15 @@ const Carousel = () => {
 	return (
 		<div className="embla" ref={emblaRef}>
 			<div className="embla__container">
+				{!cuaca.parameter && (
+					<>
+						<div className="skeleton"></div>
+						<div className="skeleton"></div>
+						<div className="skeleton"></div>
+						<div className="skeleton"></div>
+						<div className="skeleton"></div>
+					</>
+				)}
 				{cuaca &&
 					cuaca.parameter &&
 					cuaca.parameter
@@ -134,7 +143,7 @@ const Carousel = () => {
 										);
 									}
 
-									return <></>;
+									return <>loading</>;
 								}
 							);
 						})}
@@ -168,8 +177,17 @@ const Carousel = () => {
 					user-select: none;
 				}
 
+				.skeleton{
+					min-height: 205px;
+					width:100%;
+					position: relative;
+					flex: 0 0 16%;
+					background:#D9D9D91F;
+				}
+
 				.embla {
 					overflow: hidden;
+					min-height: 286px;
 				}
 				.embla__container {
 					display: flex;
@@ -183,6 +201,7 @@ const Carousel = () => {
 					display:flex;
 					flex-direction:column;
 					margin-right:16px;
+					min-height: 286px;
 				}
 				.embla__slide img{
 					width:100px;
