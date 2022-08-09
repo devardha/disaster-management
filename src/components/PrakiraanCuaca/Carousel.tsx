@@ -143,7 +143,7 @@ const Carousel = () => {
 										);
 									}
 
-									return <>loading</>;
+									return <></>;
 								}
 							);
 						})}
